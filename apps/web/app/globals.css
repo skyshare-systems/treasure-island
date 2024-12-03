@@ -2,20 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*=============================================
+=            TYPGRAPHY            =
+=============================================*/
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  .ty-outline {
+    @apply font-medium text-[8.19px] leading-[120%];
   }
-}
+  .ty-subtext {
+    @apply font-medium text-[10.24px] leading-[120%];
+  }
+  .ty-subtitle {
+    @apply font-normal text-[12.80px] leading-[120%];
+  }
+  .ty-descriptions {
+    @apply font-normal text-[16px] leading-[120%];
+  }
+  .ty-title {
+    @apply text-[16px] font-bold leading-[120%];
+  }
+  .ty-subheading {
+    @apply text-[20px] font-normal leading-[120%];
+  }
+  .ty-h6 {
+    @apply text-[20px] font-extrabold leading-[120%];
+  }
+  .ty-h5 {
+    @apply text-[25px] font-extrabold leading-[120%];
+  }
+  .ty-h4 {
+    @apply text-[31.25px] font-bold leading-[120%];
+  }
+  .ty-h3 {
+    @apply text-[39.06px] font-bold leading-[120%];
+  }
+  .ty-h2 {
+    @apply text-[48.83px] font-semibold leading-[120%];
+  }
+  .ty-h1 {
+    @apply text-[61.04px] font-semibold leading-[120%];
+  }
+  .ty-display {
+    @apply text-[96px] font-medium leading-[120%];
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-white-100;
+  }
 }
