@@ -46,8 +46,8 @@
   .ty-display {
     @apply text-[96px] font-medium leading-[120%];
   }
-
+  /* 
   body {
     @apply bg-white-100;
-  }
+  } */
 }
