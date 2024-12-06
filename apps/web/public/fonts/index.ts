@@ -1,8 +1,4 @@
-import { Jaro, Fredoka } from "next/font/google";
-
-export const jaro = Jaro({
-  subsets: ["latin"],
-});
+import { Fredoka } from "next/font/google";
 
 export const fredoka = Fredoka({
   subsets: ["latin"],
