@@ -4,6 +4,7 @@ import MapExport from "@/public/assets/map_export.svg";
 import { motion } from "framer-motion";
 import WalletHub from "@/components/wallet-hub";
 import Loading from "@/components/loading";
+import Image from "next/image";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(false);
@@ -20,12 +21,11 @@ const MainGame = () => {
     return <Loading />;
   } else {
     return (
-      <motion.div className="flex justify-center items-center w-[6000px]">
+      <div className="flex justify-center items-center w-[6000px]">
         <WalletHub />
-        <motion.div>
-          <MapExport className="w-full" />
-        </motion.div>
-      </motion.div>
+
+        <MapExport className="w-full" />
+      </div>
     );
   }
 };
