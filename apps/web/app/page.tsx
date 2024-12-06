@@ -1,5 +1,9 @@
-import Image from "next/image";
+import MainGame from "@/views/main-game";
 
 export default function Home() {
-  return <></>;
+  return (
+    <main>
+      <MainGame />
+    </main>
+  );
 }
