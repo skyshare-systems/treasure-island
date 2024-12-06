@@ -24,15 +24,16 @@ const MainGame = () => {
       <div className="flex justify-center items-center ">
         <WalletHub />
 
-        {/* <Image
+        <Image
           src={"/assets/map_export.svg"}
           alt={"map"}
           height={1000}
           width={1000}
           unoptimized
-        /> */}
+          className="w-full"
+        />
 
-        <MapExport className="w-full" />
+        {/* <MapExport className="w-full" /> */}
       </div>
     );
   }
