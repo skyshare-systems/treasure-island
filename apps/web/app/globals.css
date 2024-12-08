@@ -14,7 +14,7 @@
     @apply font-medium text-[10.24px] leading-[120%];
   }
   .ty-subtitle {
-    @apply font-normal text-[12.80px] leading-[120%];
+    @apply font-bold text-[12.80px] leading-[120%];
   }
   .ty-descriptions {
     @apply font-normal text-[16px] leading-[120%];
@@ -49,5 +49,9 @@
 
   body {
     @apply bg-[#1c82f7];
+  }
+
+  .button-layout {
+    @apply shadow-[0_9px_#171921] pt-2 p-3  text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
   }
 }

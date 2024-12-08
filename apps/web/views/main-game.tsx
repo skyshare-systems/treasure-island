@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import MapExport from "@/public/assets/map_export.svg";
-import { motion } from "framer-motion";
 import WalletHub from "@/components/wallet-hub";
 import Loading from "@/components/loading";
 import Image from "next/image";
+import Marketplace from "@/views/marketplace/page";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +22,6 @@ const MainGame = () => {
     return (
       <div className="flex justify-center items-center ">
         <WalletHub />
-
         <Image
           src={"/assets/map_export.svg"}
           alt={"map"}
@@ -32,8 +30,7 @@ const MainGame = () => {
           unoptimized
           className="w-full"
         />
-
-        {/* <MapExport className="w-full" /> */}
+        <Marketplace />
       </div>
     );
   }
