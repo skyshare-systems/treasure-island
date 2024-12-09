@@ -15,15 +15,19 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
   const [val, setVal] = useState([50]);
   const [result, setResult] = useState(null);
 
-  const determineOutcome = () => {
-    const isWin = val[0];
-    if (isWin >= 100) {
+  function determineOutcome() {
+    setIsShowData(true);
+
+    const randomNumber = Math.random() * 100;
+
+    if (randomNumber < val[0]) {
       setResult("You Win!");
     } else {
       setResult("You Lose!");
     }
+
     setIsShowData(true);
-  };
+  }
 
   function handleShowResult() {
     setResult(null);
@@ -90,7 +94,7 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
               />
             </div>
             <button
-              onClick={determineOutcome}
+              onClick={() => determineOutcome()}
               className="attack-button py-3 px-8"
             >
               <h1 className={cn(fredoka.className, "ty-h4 attack-text")}>

@@ -9,7 +9,6 @@ interface IResultModal {
 }
 
 const Result = ({ result, handleShowResult }: IResultModal) => {
-  console.log(result);
   return (
     <div className="flex flex-col justify-center items-center gap-4">
       {result === "You Lose!" && (
