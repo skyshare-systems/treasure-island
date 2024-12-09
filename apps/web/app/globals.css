@@ -54,4 +54,105 @@
   .button-layout {
     @apply shadow-[0_9px_#171921] pt-2 p-3  text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
   }
+
+  .attack-button {
+    @apply text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
+  }
+}
+
+.attack-button {
+  border-radius: 16px;
+  border: 4px solid #000;
+  box-shadow:
+    0px 4px 0px 0px #000,
+    0px -8px 0px 0px #3f5673 inset;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.attack-island {
+  color: #fff;
+  text-align: center;
+
+  -webkit-text-stroke-color: red;
+  -webkit-text-stroke-color: #e08ab4;
+  -webkit-text-stroke-color: rgb(200 100 0);
+  text-shadow: 0px 8px 0px #000;
+  /* -webkit-text-stroke-width: 4;
+  -webkit-text-stroke-color: #000; */
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80%; /* 76.8px */
+}
+
+.attack-chance {
+  box-shadow:
+    0px 8px 0px 0px #482b16,
+    0px 4px 0px 0px rgba(255, 255, 255, 0.5) inset;
+}
+
+.attack-value {
+  color: var(--neutral-08, #fff);
+  text-shadow: 0px 4px 0px #482b16;
+
+  /* Heading 6 */
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #482b16;
+
+  font-weight: 600;
+  line-height: 120%; /* 24px */
+}
+
+.attack-text {
+  color: var(--neutral-08, #fff);
+  text-shadow: 0px 4px 0px #000;
+
+  /* Heading 4 */
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 37.5px */
+}
+
+.view-my-island {
+  border-radius: 8px;
+  border: 2px solid var(--neutral-01, #000);
+  background: var(--yellow-05, #ffd000);
+  box-shadow: 0px -8px 0px 0px #de9b0b inset;
+}
+
+.apr {
+  color: var(--neutral-08, #fff);
+  text-shadow: 0px 4px 0px #000;
+
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 37.5px */
+}
+
+.stroke-letter {
+  /* Heading 4 */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
