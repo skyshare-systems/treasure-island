@@ -58,6 +58,17 @@
   .attack-button {
     @apply text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
   }
+
+  .view-my-island {
+    @apply text-[#000] cursor-pointer  active:shadow-[0_0px_#de9b0b] active:translate-y-1;
+  }
+}
+
+.view-my-island {
+  border-radius: 8px;
+  border: 2px solid var(--neutral-01, #000);
+  background: var(--yellow-05, #ffd000);
+  box-shadow: 0px -8px 0px 0px #de9b0b inset;
 }
 
 .attack-button {
@@ -133,13 +144,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 37.5px */
-}
-
-.view-my-island {
-  border-radius: 8px;
-  border: 2px solid var(--neutral-01, #000);
-  background: var(--yellow-05, #ffd000);
-  box-shadow: 0px -8px 0px 0px #de9b0b inset;
 }
 
 .apr {
