@@ -37,7 +37,7 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
   if (isShowData === false) return null;
 
   return (
-    <div className="fixed top-0 left-0 backdrop-blur-lg h-full w-full flex justify-center items-center z-[9999] overflow-hidden">
+    <div className="fixed top-0 left-0 backdrop-blur-lg h-full w-full flex justify-center items-center z-[999999] overflow-hidden">
       {result === null && (
         <div className="flex flex-col items-center justify-center relative w-full max-w-[600px]">
           <Image
