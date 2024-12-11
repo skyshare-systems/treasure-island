@@ -6,8 +6,8 @@ import TokenIcon from "./icon/token";
 
 const WalletHub = () => {
   return (
-    <div className="fixed bottom-0 left-0 z-[99]">
-      <div className="flex flex-col gap-2 p-8 items-center justify-center max-w-[178px] ">
+    <div className="fixed bottom-0 left-0 z-[2]">
+      <div className="flex flex-col gap-2 p-4 md:p-8 items-center justify-center max-w-[178px] ">
         <div className="flex items-center gap-1 p-3 border border-white bg-[#007BE3] rounded-xl w-full">
           <Image src={"/icons/sui.png"} alt={"sui"} height={14} width={14} />
           <h1 className={cn(fredoka.className, "ty-title text-white")}>

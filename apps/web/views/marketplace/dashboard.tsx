@@ -96,7 +96,7 @@ const Dashboard = ({ isShowDashboard, setIsShowDashboard }: IDashboard) => {
   return (
     <>
       {!isShowData ? (
-        <div className="flex flex-col gap-2 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[581px] max-h-[581px] max-w-[588px] min-w-[588px] p-2">
+        <div className="flex flex-col gap-2 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[581px] max-h-[581px] max-w-[588px] md:min-w-[588px] p-2">
           <Filter
             filterData={filter}
             setSelectedFilter={setSelectedFilter}

@@ -24,8 +24,6 @@ const MainGame = () => {
   } else {
     return (
       <div className="flex justify-center items-center bg-[#1c82f7] relative  max-h-[100dvh] max-w-[100dvw]">
-        <WalletHub />
-
         <div className="relative overflow-y-scroll min-h-[2200px] min-w-[100dvw]">
           <Image
             src={"/assets/background/map.png"}
@@ -146,6 +144,7 @@ const MainGame = () => {
         />
 
         <Marketplace />
+        <WalletHub />
       </div>
     );
   }
