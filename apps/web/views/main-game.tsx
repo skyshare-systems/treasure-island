@@ -24,18 +24,18 @@ const MainGame = () => {
   } else {
     return (
       <div className="flex justify-center items-center bg-[#1c82f7] relative  max-h-[100dvh] max-w-[100dvw]">
-        <div className="relative overflow-y-scroll min-h-[2200px] min-w-[100dvw]">
+        <div className="relative overflow-y-scroll min-h-[2200px] min-w-[100dvw] flex justify-center items-center">
           <Image
             src={"/assets/background/map.png"}
             alt={"map"}
             height={1000}
             width={1000}
             unoptimized
-            className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-0"
+            className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-[24rem] 2xl:left-1/2 2xl:transform 2xl:-translate-x-1/2 -translate-y-0"
           />
           <LandCard
             className={
-              "absolute top-[49%] left-[28rem] transform  -translate-y-[49%] max-w-[220px] md:max-w-[300px"
+              "absolute top-[49%] left-[55rem] transform  -translate-y-[49%] max-w-[220px] md:max-w-[300px"
             }
             image={"/assets/lands/image-1.png"}
             name={"Konoha"}
@@ -48,7 +48,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[62%] left-[31rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
+              "absolute top-[62%] left-[54.5rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
             }
             image={"/assets/lands/image-2.png"}
             name={"Panda Express"}
@@ -61,7 +61,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[50%] left-[57rem] transform  -translate-y-[50%] max-w-[220px] md:max-w-[240px]"
+              "absolute top-[50%] left-[81rem] transform  -translate-y-[50%] max-w-[220px] md:max-w-[240px]"
             }
             image={"/assets/lands/image-3.png"}
             name={"Zen's Tropics"}
@@ -74,7 +74,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[62%] left-[70rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
+              "absolute top-[62%] left-[93.5rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
             }
             image={"/assets/lands/image-4.png"}
             name={"Tropical Hut"}
@@ -87,7 +87,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[85%] left-[31.5rem] transform  -translate-y-[85%] max-w-[220px] md:max-w-[230px]"
+              "absolute top-[85%] left-[55rem] transform  -translate-y-[85%] max-w-[220px] md:max-w-[230px]"
             }
             image={"/assets/lands/image-5.png"}
             name={"Shang Chi"}
@@ -100,7 +100,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[85.5%] left-[57.2rem] transform  -translate-y-[85.5%] max-w-[220px] md:max-w-[230px]"
+              "absolute top-[85.5%] left-[80.6rem] transform  -translate-y-[85.5%] max-w-[220px] md:max-w-[230px]"
             }
             image={"/assets/lands/image-6.png"}
             name={"Pls dont attacc me"}
@@ -113,7 +113,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[97.5%] left-[70rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
+              "absolute top-[97.5%] left-[93.5rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
             }
             image={"/assets/lands/image-7.png"}
             name={"KungFu Panda"}
@@ -126,7 +126,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[97.5%] left-[95.6rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
+              "absolute top-[97.5%] left-[119rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
             }
             image={"/assets/lands/image-8.png"}
             name={"Planet Namek"}
