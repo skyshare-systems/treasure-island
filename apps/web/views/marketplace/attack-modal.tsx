@@ -52,7 +52,7 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
             alt={"Attack The Island"}
             height={154}
             width={380}
-            className="w-full max-w-[380px] pb-[21px] -mt-[4rem]"
+            className="w-full max-w-[380px] pb-[21px] -mt-[2rem]"
           />
 
           <div className="flex flex-col justify-center items-center w-full max-w-[424px] gap-4">
@@ -76,7 +76,7 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
               onValueChange={(i) => setVal(i)}
             />
 
-            <div className="flex flex-wrap justify-evenly items-start gap-2 max-w-[424px] min-h-[230px]">
+            <div className="flex flex-wrap justify-evenly items-start gap-2 max-w-[424px] min-h-[180px]">
               <AttackCard
                 title={"Island Price"}
                 value={"41,859.25"}
@@ -93,14 +93,26 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
                 className={"ty-h6"}
               />
             </div>
-            <button
-              onClick={() => determineOutcome()}
-              className="attack-button py-3 px-8"
-            >
-              <h1 className={cn(fredoka.className, "ty-h4 attack-text")}>
-                Attack!
-              </h1>
-            </button>
+
+            <div className="flex flex-col gap-4 items-center justify-center">
+              <button
+                onClick={() => determineOutcome()}
+                className="attack-button pt-3 pb-4 px-4"
+              >
+                <h1 className={cn(fredoka.className, "ty-h4 attack-text")}>
+                  Attack!
+                </h1>
+              </button>
+
+              <button
+                onClick={() => setIsShowData(false)}
+                className="cancel-button pt-3 pb-4 px-4"
+              >
+                <h1 className={cn(fredoka.className, "ty-title attack-text")}>
+                  Cancel
+                </h1>
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -33,6 +33,7 @@ const MainGame = () => {
             unoptimized
             className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-[24rem] 2xl:left-1/2 2xl:transform 2xl:-translate-x-1/2 -translate-y-0"
           />
+
           <LandCard
             className={
               "absolute top-[49%] left-[55rem] transform  -translate-y-[49%] max-w-[220px] md:max-w-[300px"
