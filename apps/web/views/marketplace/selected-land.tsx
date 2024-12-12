@@ -1,17 +1,22 @@
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import ArrowLeft from "@/components/icon/arrow-left";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
+import SwordIcon from "@/components/icon/sword";
+import HistoryCard from "@/components/history-card";
+import ShieldIcon from "@/components/icon/shield";
+import SunIcon from "@/components/icon/sun";
 
 const SelectedLand = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setIsShowAttackModal } = useAttackModal((state) => state);
+  const [selectedFilter, setSelectedFilter] = useState("Transaction History");
 
   const filter = [
     {
@@ -21,6 +26,34 @@ const SelectedLand = () => {
       name: "Transaction History",
     },
   ];
+
+  const transaction_history = [
+    {
+      icon: <SwordIcon />,
+      title: "Island successfully captured by",
+      tag: "@zenfrogs",
+      time: "12:34pm",
+      textColor: "text-[#26995E]",
+      bgColor: "bg-[#26995E]",
+    },
+    {
+      icon: <ShieldIcon />,
+      title: "Attack failed! Attempted by",
+      tag: "@000",
+      time: "12:34pm",
+      textColor: "text-[#BF140A]",
+      bgColor: "bg-[#BF140A]",
+    },
+    {
+      icon: <SunIcon />,
+      title: "Island Created",
+      tag: "",
+      time: "12:34pm",
+      textColor: "text-[#DE9B0B]",
+      bgColor: "bg-[#DE9B0B]",
+    },
+  ];
+
   return (
     <>
       {dashboardCount === 2 && (
@@ -94,7 +127,7 @@ const SelectedLand = () => {
               </div>
 
               {/* Right */}
-              <div className="flex flex-col items-start justify-start gap-4">
+              <div className="flex flex-col items-start justify-start gap-4 w-full">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center py-1 px-2 bg-green-3 rounded-full">
                     <h1 className={cn(fredoka.className, "ty-subtitle")}>
@@ -142,10 +175,12 @@ const SelectedLand = () => {
                     return (
                       <button
                         key={index}
+                        onClick={() => setSelectedFilter(data.name)}
                         className={cn(
                           fredoka.className,
                           "py-1 px-2 text-neutral-1 ty-subtitle",
-                          "hover:underline underline-offset-4 ease-out duration-300"
+                          "ease-out duration-300  underline-offset-4",
+                          `${selectedFilter === data.name ? "underline" : "hover:underline"}`
                         )}
                       >
                         {data.name}
@@ -153,6 +188,23 @@ const SelectedLand = () => {
                     );
                   })}
                 </div>
+                {selectedFilter === "Transaction History" && (
+                  <div className="bg-white p-1 flex flex-col gap-1 items-start justify-start border border-neutral-5/15 rounded-lg w-full grow self-stretch min-h-[395px]">
+                    {transaction_history.map((data, index) => {
+                      return (
+                        <HistoryCard
+                          icon={data.icon}
+                          title={data.title}
+                          tag={data.tag}
+                          time={data.time}
+                          key={index}
+                          textColor={data.textColor}
+                          bgColor={data.bgColor}
+                        />
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
           </div>
