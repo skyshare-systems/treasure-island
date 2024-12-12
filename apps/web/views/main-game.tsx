@@ -7,10 +7,15 @@ import Marketplace from "@/views/marketplace/page";
 import LandCard from "@/components/land-card";
 import AttackModal from "./marketplace/attack-modal";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
+import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(false);
   const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
+    (state) => state
+  );
+
+  const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
 
@@ -48,6 +53,7 @@ const MainGame = () => {
             token={12}
             percentage={1.4}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -61,6 +67,7 @@ const MainGame = () => {
             token={540}
             percentage={1.6}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -74,6 +81,7 @@ const MainGame = () => {
             token={6}
             percentage={1.4}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -87,6 +95,7 @@ const MainGame = () => {
             token={15}
             percentage={1.2}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -100,6 +109,7 @@ const MainGame = () => {
             token={26}
             percentage={1.9}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -113,6 +123,7 @@ const MainGame = () => {
             token={44}
             percentage={1.56}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -126,6 +137,7 @@ const MainGame = () => {
             token={43}
             percentage={1.89}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
 
           <LandCard
@@ -139,13 +151,11 @@ const MainGame = () => {
             token={30}
             percentage={1.8}
             handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
           />
         </div>
 
-        <AttackModal
-          setIsShowData={setIsShowAttackModal}
-          isShowData={isShowAttackModal}
-        />
+        <AttackModal />
 
         <Marketplace />
         <WalletHub />

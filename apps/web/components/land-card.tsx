@@ -15,6 +15,7 @@ interface ILandCard {
   token: string | number;
   percentage: string | number;
   handleAttackModal: any;
+  handleViewLand: any;
 }
 
 const LandCard = ({ ...props }: ILandCard) => {
@@ -49,7 +50,7 @@ const LandCard = ({ ...props }: ILandCard) => {
                 </h1>
               </div>
               <div className="pl-4 pb-4 flex items-center gap-2">
-                <button>
+                <button onClick={props.handleViewLand}>
                   <ArrowUpRight />
                 </button>
               </div>
