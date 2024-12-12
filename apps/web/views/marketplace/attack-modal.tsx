@@ -5,18 +5,18 @@ import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
 import AttackCard from "@/components/attack-card";
 import Result from "@/components/result";
+import { useAttackModal } from "@/lib/store/attack-modal-store";
 
-interface IAttackModal {
-  setIsShowData: any;
-  isShowData: boolean;
-}
-
-const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
+const AttackModal = () => {
   const [val, setVal] = useState([50]);
   const [result, setResult] = useState(null);
 
+  const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
+    (state) => state
+  );
+
   function determineOutcome() {
-    setIsShowData(true);
+    setIsShowAttackModal(true);
 
     const randomNumber = Math.random() * 100;
 
@@ -26,15 +26,15 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
       setResult("You Lose!");
     }
 
-    setIsShowData(true);
+    setIsShowAttackModal(true);
   }
 
   function handleShowResult() {
     setResult(null);
-    setIsShowData(false);
+    setIsShowAttackModal(false);
   }
 
-  if (isShowData === false) return null;
+  if (isShowAttackModal === false) return null;
 
   return (
     <div className="fixed top-0 left-0 backdrop-blur-lg h-full w-full flex justify-center items-center z-[999999] overflow-hidden">
@@ -105,7 +105,7 @@ const AttackModal = ({ setIsShowData, isShowData }: IAttackModal) => {
               </button>
 
               <button
-                onClick={() => setIsShowData(false)}
+                onClick={() => setIsShowAttackModal(false)}
                 className="cancel-button pt-3 pb-4 px-4"
               >
                 <h1 className={cn(fredoka.className, "ty-title attack-text")}>

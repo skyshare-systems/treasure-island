@@ -6,10 +6,13 @@ import Image from "next/image";
 import Marketplace from "@/views/marketplace/page";
 import LandCard from "@/components/land-card";
 import AttackModal from "./marketplace/attack-modal";
+import { useAttackModal } from "@/lib/store/attack-modal-store";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(false);
-  const [isShowAttackModal, setIsShowAttackModal] = useState(false);
+  const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
+    (state) => state
+  );
 
   useEffect(() => {
     setLoading(true);
