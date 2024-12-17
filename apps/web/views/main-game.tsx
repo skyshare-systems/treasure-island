@@ -31,15 +31,15 @@ const MainGame = () => {
     return <Loading />;
   } else {
     return (
-      <div className="flex justify-center items-center bg-[#1c82f7] relative  max-h-[100dvh] max-w-[100dvw]">
-        <div className="relative overflow-y-scroll min-h-[2200px] min-w-[100dvw] flex justify-center items-center">
+      <div className="flex justify-center items-center bg-[#1c82f7] relative  max-h-[100dvh] max-w-[100dvw] overflow-y-auto">
+        <div className="relative min-h-[2200px] min-w-[100dvw] flex justify-center items-center">
           <Image
             src={"/assets/background/map.png"}
             alt={"map"}
             height={1000}
             width={1000}
             unoptimized
-            className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-[24rem] 2xl:left-1/2 2xl:transform 2xl:-translate-x-1/2 -translate-y-0"
+            className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-[24rem] "
           />
 
           <LandCard
