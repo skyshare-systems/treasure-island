@@ -65,6 +65,10 @@
   .view-my-island {
     @apply text-[#000] cursor-pointer  active:shadow-[0_0px_#de9b0b] active:translate-y-1;
   }
+
+  .swap-button {
+    @apply cursor-pointer shadow-[0_5px_#de9b0b] active:shadow-[0_0px_#de9b0b] active:translate-y-1;
+  }
 }
 
 .view-my-island {
@@ -172,4 +176,9 @@
   /* Heading 4 */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
+}
+
+.swap-button {
+  background: var(--yellow-05, #ffd000);
+  /* box-shadow: 0px -4px 0px 0px #de9b0b inset; */
 }
