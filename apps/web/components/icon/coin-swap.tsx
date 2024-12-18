@@ -14,14 +14,14 @@ const CoinSwap = () => {
         fill="white"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M3.64616 2.72585C2.48451 2.93204 1.60449 3.9451 1.60449 5.16667H0.729492C0.729492 3.31254 2.22953 1.8125 4.08366 1.8125H4.52116V3.41667H3.64616V2.72585Z"
         fill="white"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M10.3545 12.2742C11.5161 12.0679 12.3962 11.0549 12.3962 9.83331H13.2712C13.2712 11.6874 11.7711 13.1875 9.91699 13.1875H9.47949V11.5833H10.3545V12.2742Z"
         fill="white"
       />
