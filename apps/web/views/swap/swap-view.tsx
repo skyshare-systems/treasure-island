@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +33,12 @@ const SwapView = () => {
     address: "0x1...1",
   });
 
+  const [token3, setToken3] = useState({
+    name: "",
+    image: "",
+    address: "",
+  });
+
   const tokens = [
     {
       name: "SUI",
@@ -56,12 +62,28 @@ const SwapView = () => {
     },
   ];
 
+  function switchData() {
+    setToken3(token);
+    setToken(token2);
+  }
+
+  function switchToken2() {
+    setToken2(token3);
+  }
+
+  useEffect(() => {
+    switchToken2();
+  }, [token]);
+
   return (
     <>
       {dashboardCount === 3 && (
         <div className="flex flex-col gap-2 items-start justify-start min-w-[288px]  min-h-[266px] pt-2 pb-3 px-2 rounded-3xl border-4 border-cyan-1 bg-neutral-7">
           <div className="flex flex-col items-start justify-start gap-[3px] w-full relative">
-            <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-7 p-1 rounded-lg">
+            <button
+              onClick={switchData}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-7 p-1 rounded-lg"
+            >
               <ArrowSwap />
             </button>
             {/* you pay  */}
@@ -92,27 +114,29 @@ const SwapView = () => {
                     <DropdownMenuTrigger asChild>
                       <button
                         className={cn(
-                          "flex items-center gap-1 p-1 rounded-[4px] grow",
+                          "flex items-center justify-between gap-1 p-1 rounded-[4px] grow",
                           `${open ? "bg-neutral-1 border border-neutral-1" : ""}`
                         )}
                       >
-                        <Image
-                          src={token.image}
-                          alt={token.name}
-                          height={14}
-                          width={14}
-                          unoptimized
-                        />
+                        <div className="flex items-center gap-1">
+                          <Image
+                            src={token.image}
+                            alt={token.name}
+                            height={14}
+                            width={14}
+                            unoptimized
+                          />
 
-                        <h1
-                          className={cn(
-                            fredoka.className,
-                            "ty-subtitle ",
-                            `${open ? "text-neutral-8" : "text-neutral-1"}`
-                          )}
-                        >
-                          {token.name}
-                        </h1>
+                          <h1
+                            className={cn(
+                              fredoka.className,
+                              "ty-subtitle ",
+                              `${open ? "text-neutral-8" : "text-neutral-1"}`
+                            )}
+                          >
+                            {token.name === "" ? "Select" : token.name}
+                          </h1>
+                        </div>
 
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -243,24 +267,26 @@ const SwapView = () => {
                           `${open2 ? "bg-neutral-1 border border-neutral-1" : ""}`
                         )}
                       >
-                        <Image
-                          src={token2.image}
-                          alt={token2.name}
-                          height={14}
-                          width={14}
-                          unoptimized
-                          className="min-w-[14px]"
-                        />
+                        <div className="flex items-center gap-1">
+                          <Image
+                            src={token2.image}
+                            alt={token2.name}
+                            height={14}
+                            width={14}
+                            unoptimized
+                            className="min-w-[14px]"
+                          />
 
-                        <h1
-                          className={cn(
-                            fredoka.className,
-                            "ty-subtitle ",
-                            `${open2 ? "text-neutral-8" : "text-neutral-1"}`
-                          )}
-                        >
-                          {token2.name}
-                        </h1>
+                          <h1
+                            className={cn(
+                              fredoka.className,
+                              "ty-subtitle ",
+                              `${open2 ? "text-neutral-8" : "text-neutral-1"}`
+                            )}
+                          >
+                            {token2.name === "" ? "Select" : token2.name}
+                          </h1>
+                        </div>
 
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
