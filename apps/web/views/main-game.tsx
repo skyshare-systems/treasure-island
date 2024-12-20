@@ -31,20 +31,20 @@ const MainGame = () => {
     return <Loading />;
   } else {
     return (
-      <div className="flex justify-center items-center bg-[#1c82f7] relative  max-h-[100dvh] max-w-[100dvw] overflow-y-auto">
+      <div className="flex justify-center items-center bg-[#1c82f7] relative  overflow-y-auto">
         <div className="relative min-h-[2200px] min-w-[100dvw] flex justify-center items-center">
           <Image
-            src={"/assets/background/map.png"}
+            src={"/assets/background/map-v2.png"}
             alt={"map"}
             height={1000}
             width={1000}
             unoptimized
-            className="min-h-[2200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-0 left-[24rem] "
+            className="min-h-[1200px] min-w-[1800px] max-h-[2200px] max-w-[1800px] absolute top-5 left-[24rem]"
           />
 
           <LandCard
             className={
-              "absolute top-[49%] left-[55rem] transform  -translate-y-[49%] max-w-[220px] md:max-w-[300px"
+              "absolute top-[1.6%] left-[42.5rem] transform  -translate-y-[1.6%]"
             }
             image={"/assets/lands/image-1.png"}
             name={"Konoha"}
@@ -54,97 +54,29 @@ const MainGame = () => {
             percentage={1.4}
             handleAttackModal={() => setIsShowAttackModal(true)}
             handleViewLand={() => setDashboardCount(2)}
+            imageClassName={"max-w-[220px] md:max-w-[280px]"}
           />
 
           <LandCard
             className={
-              "absolute top-[62%] left-[54.5rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
+              "absolute top-[1.6%] left-[68.2rem] transform  -translate-y-[1.6%]"
             }
             image={"/assets/lands/image-2.png"}
-            name={"Panda Express"}
-            tag={"@chinesekitchen"}
-            sui={15}
-            token={540}
-            percentage={1.6}
+            name={"Mirai Land"}
+            tag={"@studiomirai"}
+            sui={80}
+            token={47}
+            percentage={1.1}
             handleAttackModal={() => setIsShowAttackModal(true)}
             handleViewLand={() => setDashboardCount(2)}
+            imageClassName={"max-w-[220px] md:max-w-[280px]"}
           />
 
           <LandCard
             className={
-              "absolute top-[50%] left-[81rem] transform  -translate-y-[50%] max-w-[220px] md:max-w-[240px]"
+              "absolute top-[12%] left-[55.3rem] transform  -translate-y-[12%]"
             }
             image={"/assets/lands/image-3.png"}
-            name={"Zen's Tropics"}
-            tag={"@zenfrogs"}
-            sui={12}
-            token={6}
-            percentage={1.4}
-            handleAttackModal={() => setIsShowAttackModal(true)}
-            handleViewLand={() => setDashboardCount(2)}
-          />
-
-          <LandCard
-            className={
-              "absolute top-[62%] left-[93.5rem] transform  -translate-y-[62%] max-w-[220px] md:max-w-[240px]"
-            }
-            image={"/assets/lands/image-4.png"}
-            name={"Tropical Hut"}
-            tag={"0x95ac…135f"}
-            sui={69}
-            token={15}
-            percentage={1.2}
-            handleAttackModal={() => setIsShowAttackModal(true)}
-            handleViewLand={() => setDashboardCount(2)}
-          />
-
-          <LandCard
-            className={
-              "absolute top-[85%] left-[55rem] transform  -translate-y-[85%] max-w-[220px] md:max-w-[230px]"
-            }
-            image={"/assets/lands/image-5.png"}
-            name={"Shang Chi"}
-            tag={"@kotaro"}
-            sui={48}
-            token={26}
-            percentage={1.9}
-            handleAttackModal={() => setIsShowAttackModal(true)}
-            handleViewLand={() => setDashboardCount(2)}
-          />
-
-          <LandCard
-            className={
-              "absolute top-[85.5%] left-[80.6rem] transform  -translate-y-[85.5%] max-w-[220px] md:max-w-[230px]"
-            }
-            image={"/assets/lands/image-6.png"}
-            name={"Pls dont attacc me"}
-            tag={"@wade"}
-            sui={31}
-            token={44}
-            percentage={1.56}
-            handleAttackModal={() => setIsShowAttackModal(true)}
-            handleViewLand={() => setDashboardCount(2)}
-          />
-
-          <LandCard
-            className={
-              "absolute top-[97.5%] left-[93.5rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
-            }
-            image={"/assets/lands/image-7.png"}
-            name={"KungFu Panda"}
-            tag={"@0x95cc…1485"}
-            sui={56}
-            token={43}
-            percentage={1.89}
-            handleAttackModal={() => setIsShowAttackModal(true)}
-            handleViewLand={() => setDashboardCount(2)}
-          />
-
-          <LandCard
-            className={
-              "absolute top-[97.5%] left-[119rem] transform  -translate-y-[97.5%] max-w-[220px] md:max-w-[230px]"
-            }
-            image={"/assets/lands/image-8.png"}
             name={"Planet Namek"}
             tag={"@suiyan"}
             sui={42}
@@ -152,6 +84,37 @@ const MainGame = () => {
             percentage={1.8}
             handleAttackModal={() => setIsShowAttackModal(true)}
             handleViewLand={() => setDashboardCount(2)}
+            imageClassName={"max-w-[220px] md:max-w-[280px]"}
+          />
+
+          <LandCard
+            className={
+              "absolute top-[23%] left-[42.5rem] transform  -translate-y-[23%]"
+            }
+            image={"/assets/lands/image-4.png"}
+            name={"Pink Panther"}
+            tag={"0x1412…4120"}
+            sui={37}
+            token={22}
+            percentage={1.3}
+            handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
+            imageClassName={"max-w-[220px] md:max-w-[280px]"}
+          />
+
+          <LandCard
+            className={
+              "absolute top-[34%] left-[30rem] transform  -translate-y-[34%]"
+            }
+            image={"/assets/lands/image-5.png"}
+            name={"Sacred Land of Japan"}
+            tag={"@japanesegovernment"}
+            sui={194}
+            token={39}
+            percentage={2.57}
+            handleAttackModal={() => setIsShowAttackModal(true)}
+            handleViewLand={() => setDashboardCount(2)}
+            imageClassName={"max-w-[220px] md:max-w-[250px]"}
           />
         </div>
 
