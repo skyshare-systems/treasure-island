@@ -74,7 +74,7 @@ const MainGame = () => {
 
           <LandCard
             className={
-              "absolute top-[12%] left-[35.3rem] md:left-[45.3rem] transform  -translate-y-[12%]"
+              "absolute top-[12%] left-[35.3rem] md:left-[55.8rem] transform  -translate-y-[12%]"
             }
             image={"/assets/lands/image-3.png"}
             name={"Planet Namek"}
