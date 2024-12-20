@@ -8,6 +8,7 @@ import PercentageIcon from "./icon/percentage";
 
 interface ILandCard {
   className: string;
+  imageClassName: string;
   image: string;
   name: string;
   tag: string;
