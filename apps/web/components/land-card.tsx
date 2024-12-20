@@ -28,11 +28,11 @@ const LandCard = ({ ...props }: ILandCard) => {
           alt={props.name}
           height={540}
           width={540}
-          className="max-w-[220px] md:max-w-[240px]"
+          className={cn(props.imageClassName)}
           unoptimized
         />
 
-        <div className="absolute top-[120%] left-1/2 transform -translate-x-1/2 -translate-y-[120%] flex justify-center items-center opacity-0 scale-75 group-hover/image:scale-100 group-hover/image:opacity-100 ease-out duration-300">
+        <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2  flex justify-center items-center opacity-0 scale-75 group-hover/image:scale-100 group-hover/image:opacity-100 ease-out duration-300">
           <div className="relative bg-neutral-8 min-w-[175px] min-h-[134px] pb-5 p-3 rounded-2xl flex flex-col gap-2 ">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
