@@ -5,6 +5,9 @@ import { fredoka } from "@/public/fonts";
 import ArrowUpRight from "./icon/arrow-up-right";
 import TokenIcon from "./icon/token";
 import PercentageIcon from "./icon/percentage";
+import { useAttackModal } from "@/lib/store/attack-modal-store";
+import { useSelectedLand } from "@/lib/store/selected-land-store";
+import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 
 interface ILandCard {
   className: string;
@@ -15,11 +18,39 @@ interface ILandCard {
   sui: string | number;
   token: string | number;
   percentage: string | number;
-  handleAttackModal: any;
-  handleViewLand: any;
 }
 
 const LandCard = ({ ...props }: ILandCard) => {
+  const { setIsShowAttackModal } = useAttackModal((state) => state);
+
+  const { setDashboardCount } = useDashboardModal((state) => state);
+  const { setItem } = useSelectedLand((state) => state);
+
+  function handleAttack(name, image, tag, sui, token, percentage) {
+    setItem({
+      name: name,
+      image: image,
+      tag: tag,
+      sui: sui,
+      token: token,
+      percentage: percentage,
+    });
+
+    setIsShowAttackModal(true);
+  }
+
+  function handleViewData(name, image, tag, sui, token, percentage) {
+    setItem({
+      name: name,
+      image: image,
+      tag: tag,
+      sui: sui,
+      token: token,
+      percentage: percentage,
+    });
+
+    setDashboardCount(2);
+  }
   return (
     <div className={cn(props.className)}>
       <div className="relative group/image">
@@ -51,7 +82,18 @@ const LandCard = ({ ...props }: ILandCard) => {
                 </h1>
               </div>
               <div className="pl-4 pb-4 flex items-center gap-2">
-                <button onClick={props.handleViewLand}>
+                <button
+                  onClick={() =>
+                    handleViewData(
+                      props.name,
+                      props.image,
+                      props.tag,
+                      props.sui,
+                      props.token,
+                      props.percentage
+                    )
+                  }
+                >
                   <ArrowUpRight />
                 </button>
               </div>
@@ -86,7 +128,16 @@ const LandCard = ({ ...props }: ILandCard) => {
             </div>
 
             <button
-              onClick={props.handleAttackModal}
+              onClick={() =>
+                handleAttack(
+                  props.name,
+                  props.image,
+                  props.tag,
+                  props.sui,
+                  props.token,
+                  props.percentage
+                )
+              }
               className={cn(
                 fredoka.className,
                 "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"

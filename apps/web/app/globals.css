@@ -155,7 +155,7 @@
   text-shadow: 0px 4px 0px #000;
 
   /* Heading 4 */
-  -webkit-text-strokewidth: 1;
+  -webkit-text-strokewidth: 3;
   -webkit-text-stroke-color: #000;
 
   font-style: normal;
@@ -174,7 +174,7 @@
 
 .stroke-letter {
   /* Heading 4 */
-  -webkit-text-strokewidth: 1px;
+  -webkit-text-strokewidth: 2px;
   -webkit-text-stroke-color: #000;
 }
 

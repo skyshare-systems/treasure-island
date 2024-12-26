@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
 import React from "react";
 import Image from "next/image";
+import { useSelectedLand } from "@/lib/store/selected-land-store";
 
 interface IResultModal {
   result: string;
@@ -9,6 +10,8 @@ interface IResultModal {
 }
 
 const Result = ({ result, handleShowResult }: IResultModal) => {
+  const { item } = useSelectedLand((state) => state);
+
   return (
     <div className="flex flex-col justify-center items-center gap-4">
       {result === "You Lose!" && (
@@ -48,8 +51,8 @@ const Result = ({ result, handleShowResult }: IResultModal) => {
           />
 
           <Image
-            src={"/assets/dashboard/win.png"}
-            alt={"lost panda"}
+            src={item.image}
+            alt={item.name}
             height={540}
             width={540}
             className="w-full max-w-[540px]"

@@ -10,12 +10,15 @@ import SwordIcon from "@/components/icon/sword";
 import HistoryCard from "@/components/history-card";
 import ShieldIcon from "@/components/icon/shield";
 import SunIcon from "@/components/icon/sun";
+import { useSelectedLand } from "@/lib/store/selected-land-store";
 
 const SelectedLand = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setIsShowAttackModal } = useAttackModal((state) => state);
+  const { item, setItem } = useSelectedLand((state) => state);
+
   const [selectedFilter, setSelectedFilter] = useState("Transaction History");
 
   const filter = [
@@ -54,6 +57,10 @@ const SelectedLand = () => {
     },
   ];
 
+  function handleAttack() {
+    setIsShowAttackModal(true);
+  }
+
   return (
     <>
       {dashboardCount === 2 && (
@@ -76,8 +83,8 @@ const SelectedLand = () => {
               <div className="flex flex-col items-start justify-start gap-2 sm:max-w-[144px]">
                 <div className="bg-[#489BFA] rounded-xl flex items-center justify-center p-2">
                   <Image
-                    src={"/assets/lands/image-1.png"}
-                    alt={"Zen's Tropics"}
+                    src={item.image}
+                    alt={item.name}
                     height={144}
                     width={144}
                     className="w-full"
@@ -86,7 +93,7 @@ const SelectedLand = () => {
                 </div>
 
                 <button
-                  onClick={() => setIsShowAttackModal(true)}
+                  onClick={() => handleAttack()}
                   className={cn(
                     fredoka.className,
                     "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
@@ -137,12 +144,12 @@ const SelectedLand = () => {
                     </h1>
                   </div>
 
-                  <h1 className="ty-h5 text-neutral-1">Zen’s Tropics</h1>
+                  <h1 className="ty-h5 text-neutral-1">{item.name}</h1>
 
                   <div className="flex items-center gap-1">
                     <h1 className="ty-subtext text-neutral-6">Owned by</h1>
                     <h1 className="ty-descriptions text-neutral-1 ty-descriptions">
-                      @zenfrogs
+                      {item.tag}
                     </h1>
 
                     <svg
