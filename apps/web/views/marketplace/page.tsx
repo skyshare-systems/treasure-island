@@ -1,3 +1,4 @@
+"use client";
 import DashboardIcon from "@/components/icon/dashboard";
 import XIcon from "@/components/icon/x-icon";
 import { cn } from "@/lib/utils";
