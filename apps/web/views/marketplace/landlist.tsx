@@ -204,19 +204,19 @@ const LandList = () => {
 
   const filter = [
     {
-      name: "Tropical Forest",
+      name: "Gold",
       quantity: tropical_forest.length,
     },
     {
-      name: "Mangrove Land",
+      name: "Platinum",
       quantity: mangrove_land.length,
     },
     {
-      name: "Diamond Ice",
+      name: "Diamond",
       quantity: diamond_ice.length,
     },
     {
-      name: "Bamboo Gold",
+      name: "Emerald",
       quantity: bamboo_gold.length,
     },
   ];
