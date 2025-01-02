@@ -167,12 +167,15 @@ const SwapView = () => {
                             }
                             className="flex items-center gap-2 p-1"
                           >
-                            <Image
-                              src={data.image}
-                              alt={data.name}
-                              height={30}
-                              width={30}
-                            />
+                            {data.image && (
+                              <Image
+                                src={data.image}
+                                alt={data.name}
+                                height={30}
+                                width={30}
+                              />
+                            )}
+
                             <div className="flex flex-col gap-1">
                               <h1
                                 className={cn(

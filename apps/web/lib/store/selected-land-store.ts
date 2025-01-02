@@ -9,8 +9,10 @@ export interface ISelectedLand {
 
 interface SelectedItem {
   name: string;
-  image: string;
   tag: string;
+  type: string;
+  variant: string;
+  image: string;
   sui: number | string;
   token: number | string;
   percentage: number | string;

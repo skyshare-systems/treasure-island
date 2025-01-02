@@ -84,7 +84,7 @@ const Result = ({ result, handleShowResult }: IResultModal) => {
 
             <div className="flex flex-col justify-center items-center gap-1 min-w-[131px]">
               <div className="flex items-center gap-1">
-                <h1 className={cn(fredoka.className, "text-white apr ty-h4")}>
+                <h1 className={cn(fredoka.className, " apr ty-h4")}>
                   <span className="stroke-letter">41,859.25</span>
                 </h1>
               </div>

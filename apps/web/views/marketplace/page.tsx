@@ -13,7 +13,7 @@ const Marketplace = () => {
     (state) => state
   );
   return (
-    <div className="fixed flex flex-col items-end justify-end md:right-8 gap-2 md:bottom-8 bottom-4 right-0 px-4 z-[3]">
+    <div className="fixed flex flex-col items-end justify-end  gap-2 bottom-4 right-0 px-4 z-[3]">
       <Dashboard />
       <div className="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-4">
         <Swap />

@@ -20,7 +20,7 @@
     @apply font-normal text-[16px] leading-[120%];
   }
   .ty-title {
-    @apply text-[16px] font-bold leading-[120%];
+    @apply text-[14px] font-bold leading-[120%];
   }
   .ty-subheading {
     @apply text-[20px] font-normal leading-[120%];
@@ -52,7 +52,7 @@
   }
 
   .button-layout {
-    @apply shadow-[0_9px_#171921] pt-2 p-3  text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
+    @apply shadow-[0_6px_#171921]  text-[white] cursor-pointer  active:shadow-[0_3px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
   }
 
   .attack-button {
@@ -103,17 +103,17 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: transparent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: transparent;
 }
 
 .attack-island {
@@ -174,8 +174,9 @@
 
 .stroke-letter {
   /* Heading 4 */
-  -webkit-text-strokewidth: 2px;
-  -webkit-text-stroke-color: #000;
+  color: white;
+
+  -webkit-text-stroke: 1px #000;
 }
 
 .swap-button {
