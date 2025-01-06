@@ -11,8 +11,12 @@ import ZoomOut from "./icon/zoom-out";
 const WalletHub = () => {
   const { zoomIn, zoomOut, resetTransform, centerView } = useControls();
   function handleFunction() {
-    centerView();
     resetTransform();
+    const timeoutId = setTimeout(function () {
+      centerView();
+    }, 300);
+
+    clearTimeout(timeoutId);
   }
   return (
     <div className="fixed bottom-0 left-0 z-[2]">
