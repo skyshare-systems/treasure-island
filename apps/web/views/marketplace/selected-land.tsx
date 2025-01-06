@@ -23,7 +23,7 @@ const SelectedLand = () => {
   const { setIsShowAttackModal } = useAttackModal((state) => state);
   const { item, setItem } = useSelectedLand((state) => state);
 
-  const [selectedFilter, setSelectedFilter] = useState("Transaction History");
+  const [selectedFilter, setSelectedFilter] = useState("Price and Yield");
 
   const filter = [
     {

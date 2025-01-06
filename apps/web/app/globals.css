@@ -52,22 +52,25 @@
   }
 
   .button-layout {
-    @apply shadow-[0_6px_#171921]  text-[white] cursor-pointer  active:shadow-[0_3px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
+    @apply shadow-[0_6px_#171921]  text-[white] cursor-pointer  active:shadow-[0_3px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1 hover:scale-105 ease-out duration-300;
+  }
+  .cancel-layout {
+    @apply shadow-[0_6px_#171921]  text-[white] cursor-pointer  active:shadow-[0_3px_#171921] active:translate-y-1 hover:scale-105 ease-out duration-300;
   }
 
   .attack-button {
-    @apply text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
+    @apply text-[white] cursor-pointer shadow-[0_5px_#3f5673]  active:shadow-[0_5px_#3f5673] active:translate-y-1 bg-cyan-1 border border-cyan-1 hover:scale-105 ease-out duration-300;
   }
   .cancel-button {
-    @apply text-[white] cursor-pointer  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1;
+    @apply text-[white] cursor-pointer shadow-[0_5px_#171921]  active:shadow-[0_5px_#171921] active:translate-y-1 bg-cyan-1 border border-cyan-1 hover:scale-105 ease-out duration-300;
   }
 
   .view-my-island {
-    @apply text-[#000] cursor-pointer  active:shadow-[0_0px_#de9b0b] active:translate-y-1;
+    @apply text-[#000] cursor-pointer  active:shadow-[0_0px_#de9b0b] active:translate-y-1 hover:scale-105 ease-out duration-300;
   }
 
   .swap-button {
-    @apply cursor-pointer shadow-[0_5px_#de9b0b] active:shadow-[0_0px_#de9b0b] active:translate-y-1;
+    @apply cursor-pointer shadow-[0_5px_#de9b0b] active:shadow-[0_0px_#de9b0b] active:translate-y-1 hover:scale-105 ease-out duration-300;
   }
 }
 

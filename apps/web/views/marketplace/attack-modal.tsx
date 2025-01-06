@@ -8,11 +8,13 @@ import AttackCard from "@/components/attack-card";
 import Result from "@/components/result";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
 import Loading from "@/components/loading";
+import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 
 const AttackModal = () => {
   const [val, setVal] = useState([50]);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { setDashboardCount } = useDashboardModal((state) => state);
 
   const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
     (state) => state
@@ -39,6 +41,7 @@ const AttackModal = () => {
   function handleShowResult() {
     setResult(null);
     setIsShowAttackModal(false);
+    setDashboardCount(2);
   }
 
   if (isShowAttackModal === false) return null;
@@ -106,20 +109,22 @@ const AttackModal = () => {
               <div className="flex flex-col gap-4 items-center justify-center">
                 <button
                   onClick={() => determineOutcome()}
-                  className="attack-button pt-3 pb-4 px-4"
+                  className={cn(
+                    fredoka.className,
+                    "ty-h4 font-bold text-white pt-3 pb-4 px-4 button-layout rounded-[16px] w-full text-center border-4 border-[#000]"
+                  )}
                 >
-                  <h1 className={cn(fredoka.className, "ty-h4 attack-text")}>
-                    Attack!
-                  </h1>
+                  Attack!
                 </button>
 
                 <button
                   onClick={() => setIsShowAttackModal(false)}
-                  className="cancel-button pt-3 pb-4 px-4"
+                  className={cn(
+                    fredoka.className,
+                    "ty-title pt-3 pb-4 px-4 cancel-layout bg-[#de2800] rounded-[16px] border-4 border-[#000]"
+                  )}
                 >
-                  <h1 className={cn(fredoka.className, "ty-title attack-text")}>
-                    Cancel
-                  </h1>
+                  Cancel
                 </button>
               </div>
             </div>
