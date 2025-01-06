@@ -11,6 +11,7 @@ import {
   Tooltip as TooltipChart,
   Filler,
 } from "chart.js";
+import useSize from "@/hooks/useWindowSize";
 
 ChartJS.register(
   LineElement,
@@ -24,6 +25,7 @@ ChartJS.register(
 
 const Graph = () => {
   const chartRef = useRef(null);
+  const windowSize = useSize();
 
   const labels = [
     "January",
@@ -109,7 +111,7 @@ const Graph = () => {
   };
 
   return (
-    <div style={{ height: 144, width: 310 }}>
+    <div style={{ height: 144, width: windowSize?.[0] > 1024 ? 366 : 320 }}>
       <Line
         ref={chartRef}
         data={data}

@@ -82,7 +82,7 @@ const LandCard = ({ ...props }: ILandCard) => {
       id={props.name}
       className={cn(
         props.className,
-        "relative group/image flex flex-col items-center max-w-[200px]"
+        "relative group/image flex flex-col items-center max-w-[200px] hover:brightness-125 cursor-pointer"
       )}
     >
       <Image

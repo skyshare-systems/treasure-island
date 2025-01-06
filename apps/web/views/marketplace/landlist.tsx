@@ -310,7 +310,7 @@ const LandList = () => {
                   return (
                     <div
                       key={index}
-                      className="min-h-[254px] min-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
+                      className="w-full min-h-[254px] sm:max-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex flex-col">
@@ -473,7 +473,7 @@ const LandList = () => {
                   return (
                     <div
                       key={index}
-                      className="min-h-[254px] min-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
+                      className="w-full min-h-[254px] sm:max-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex flex-col">
@@ -603,7 +603,7 @@ const LandList = () => {
                   return (
                     <div
                       key={index}
-                      className="min-h-[254px] min-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
+                      className="w-full min-h-[254px] sm:max-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex flex-col">
@@ -733,7 +733,7 @@ const LandList = () => {
                   return (
                     <div
                       key={index}
-                      className="min-h-[254px] min-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
+                      className="w-full min-h-[254px] sm:max-w-[274px] bg-neutral-8 pb-5 p-3 flex flex-col gap-2 rounded-2xl"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex flex-col">

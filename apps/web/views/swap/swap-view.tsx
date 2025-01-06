@@ -13,30 +13,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import CopyIcon from "@/components/icon/copy-icon";
+import { useToken0, useToken1 } from "@/lib/store/token-store";
 
 const SwapView = () => {
-  const { dashboardCount, setDashboardCount } = useDashboardModal(
-    (state) => state
-  );
+  const { dashboardCount } = useDashboardModal((state) => state);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
 
-  const [token, setToken] = useState({
-    name: "SUI",
-    image: "/assets/swap/sui-token.png",
-    address: "0x1...1",
-  });
-
-  const [token2, setToken2] = useState({
-    name: "SUI",
-    image: "/assets/swap/sui-token.png",
-    address: "0x1...1",
-  });
+  const { item, setItem } = useToken0((state) => state);
+  const { item: item1, setItem: setItem1 } = useToken1((state) => state);
 
   const [token3, setToken3] = useState({
-    name: "",
-    image: "",
-    address: "",
+    name: "SUI",
+    image: "/assets/swap/sui-token.png",
+    address: "0x1...1",
   });
 
   const tokens = [
@@ -61,19 +51,30 @@ const SwapView = () => {
       address: "0x1...1",
     },
   ];
+  const [isCopy, setIsCopy] = useState(false);
 
-  function switchData() {
-    setToken3(token);
-    setToken(token2);
+  function copyClipBoard(address: string) {
+    navigator.clipboard.writeText(address);
+    setIsCopy(true);
+    const timerId = setTimeout(() => {
+      setIsCopy(false);
+    }, 2000); // Set the delay in milliseconds (1 seconds in this case)
+
+    return () => clearTimeout(timerId);
   }
 
-  function switchToken2() {
-    setToken2(token3);
+  function switchData() {
+    setToken3(item);
+    setItem(item1);
+  }
+
+  function switchitem1() {
+    setItem1(token3);
   }
 
   useEffect(() => {
-    switchToken2();
-  }, [token]);
+    switchitem1();
+  }, [token3]);
 
   return (
     <>
@@ -82,7 +83,7 @@ const SwapView = () => {
           <div className="flex flex-col items-start justify-start gap-[3px] w-full relative">
             <button
               onClick={switchData}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-7 p-1 rounded-lg"
+              className="absolute top-[56%] left-1/2 transform -translate-x-1/2 -translate-y-[56%] bg-neutral-7 p-1 rounded-lg"
             >
               <ArrowSwap />
             </button>
@@ -90,14 +91,17 @@ const SwapView = () => {
             <div className="flex flex-col gap-2 p-3 self-stretch bg-neutral-8 rounded-2xl ">
               <div className="flex flex-row justify-between items-center w-full">
                 <h1
-                  className={cn(fredoka.className, "ty-title text-neutral-1")}
+                  className={cn(
+                    fredoka.className,
+                    "ty-subtitle text-neutral-1"
+                  )}
                 >
                   You pay
                 </h1>
 
                 <div className="flex items-center gap-1">
                   <WalletIcon />
-                  <h1 className="ty-subtext text-neutral-5">499 $BUCK</h1>
+                  <h1 className="ty-subtext text-neutral-5">499 {item.name}</h1>
                 </div>
               </div>
               <div className="flex flex-col items-start gap-1 self-stretch">
@@ -120,8 +124,8 @@ const SwapView = () => {
                       >
                         <div className="flex items-center gap-1">
                           <Image
-                            src={token.image}
-                            alt={token.name}
+                            src={item.image}
+                            alt={item.name}
                             height={14}
                             width={14}
                             unoptimized
@@ -134,7 +138,7 @@ const SwapView = () => {
                               `${open ? "text-neutral-8" : "text-neutral-1"}`
                             )}
                           >
-                            {token.name === "" ? "Select" : token.name}
+                            {item.name === "" ? "Select" : item.name}
                           </h1>
                         </div>
 
@@ -159,7 +163,7 @@ const SwapView = () => {
                           <DropdownMenuItem
                             key={index}
                             onClick={() =>
-                              setToken({
+                              setItem({
                                 name: data.name,
                                 image: data.image,
                                 address: data.address,
@@ -185,14 +189,15 @@ const SwapView = () => {
                               >
                                 {data.name}
                               </h1>
-                              <h1
+                              <button
+                                onClick={() => copyClipBoard(data.address)}
                                 className={cn(
                                   "flex items-center gap-1 text-neutral-5 ty-subtext"
                                 )}
                               >
                                 {data.address}::{data.name}
                                 <CopyIcon />
-                              </h1>
+                              </button>
                             </div>
                           </DropdownMenuItem>
                         );
@@ -200,7 +205,7 @@ const SwapView = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-                <div className="flex flex-wrap justify-between gap-2 items-center">
+                <div className="flex flex-wrap justify-between gap-2 items-center w-full">
                   <h1
                     className={cn(
                       fredoka.className,
@@ -243,14 +248,19 @@ const SwapView = () => {
             <div className="flex flex-col gap-2 p-3 self-stretch bg-neutral-8 rounded-2xl ">
               <div className="flex flex-row justify-between items-center w-full">
                 <h1
-                  className={cn(fredoka.className, "ty-title text-neutral-1")}
+                  className={cn(
+                    fredoka.className,
+                    "ty-subtitle text-neutral-1"
+                  )}
                 >
                   You Receive
                 </h1>
 
                 <div className="flex items-center gap-1">
                   <WalletIcon />
-                  <h1 className="ty-subtext text-neutral-5">499 $BUCK</h1>
+                  <h1 className="ty-subtext text-neutral-5">
+                    499 {item1.name}
+                  </h1>
                 </div>
               </div>
               <div className="flex flex-col gap-1">
@@ -272,8 +282,8 @@ const SwapView = () => {
                       >
                         <div className="flex items-center gap-1">
                           <Image
-                            src={token2.image}
-                            alt={token2.name}
+                            src={item1.image}
+                            alt={item1.name}
                             height={14}
                             width={14}
                             unoptimized
@@ -287,7 +297,7 @@ const SwapView = () => {
                               `${open2 ? "text-neutral-8" : "text-neutral-1"}`
                             )}
                           >
-                            {token2.name === "" ? "Select" : token2.name}
+                            {item1.name === "" ? "Select" : item1.name}
                           </h1>
                         </div>
 
@@ -312,7 +322,7 @@ const SwapView = () => {
                           <DropdownMenuItem
                             key={index}
                             onClick={() =>
-                              setToken2({
+                              setItem1({
                                 name: data.name,
                                 image: data.image,
                                 address: data.address,
@@ -349,43 +359,6 @@ const SwapView = () => {
                       })}
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </div>
-                <div className="flex flex-wrap justify-between gap-2 items-center">
-                  <h1
-                    className={cn(
-                      fredoka.className,
-                      "p-1 ty-subtext text-neutral-5"
-                    )}
-                  >
-                    ~$10
-                  </h1>
-
-                  <div className="flex flex-wrap items-center gap-1">
-                    <button
-                      className={cn(
-                        fredoka.className,
-                        "p-1 ty-subtext text-neutral-5"
-                      )}
-                    >
-                      10%
-                    </button>
-                    <button
-                      className={cn(
-                        fredoka.className,
-                        "p-1 ty-subtext text-neutral-5"
-                      )}
-                    >
-                      50%
-                    </button>
-                    <button
-                      className={cn(
-                        fredoka.className,
-                        "p-1 ty-subtext text-neutral-5"
-                      )}
-                    >
-                      MAX
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>

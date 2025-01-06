@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Loading from "@/components/loading";
+import Loading from "@/components/loading-first";
 import LandCard from "@/components/land-card";
 import {
   TransformWrapper,
@@ -26,10 +26,11 @@ const MainGame = () => {
       {loading && <Loading />}
 
       <TransformWrapper
-        initialScale={2}
+        initialScale={4}
         initialPositionX={0}
         initialPositionY={0}
         centerOnInit
+        minScale={2}
       >
         {({ zoomIn, zoomOut, resetTransform, centerView, ...rest }) => (
           <>
@@ -37,7 +38,7 @@ const MainGame = () => {
             <Marketplace />
 
             <TransformComponent>
-              <div className="grid grid-cols-8 h-screen w-screen lg:w-[100dvw] max-w-[1600px] px-[5rem]">
+              <div className="grid grid-cols-8 h-[100dvh]  w-[100dvw] px-[5rem]">
                 {/* row 1  */}
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full  flex justify-center items-center" />
                 <div className=" max-w-[200px] max-h-[200px]  bg-[#1c82f7] flex justify-center items-center">

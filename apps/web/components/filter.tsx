@@ -10,7 +10,7 @@ interface IFilter {
 
 const Filter = ({ filterData, selectedFilter, setSelectedFilter }: IFilter) => {
   return (
-    <div className="p-1 flex flex-wrap justify-between items-center gap-2 w-full">
+    <div className="p-1 flex flex-wrap justify-center md:justify-between items-center gap-2 w-full bg-white rounded-lg">
       {filterData.map((data, index) => {
         return (
           <button
