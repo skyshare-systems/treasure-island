@@ -78,10 +78,6 @@ const SelectedLand = () => {
     return () => clearTimeout(timerId);
   }
 
-  const windowSize = useSize();
-
-  console.log(windowSize?.[0]);
-
   return (
     <>
       {dashboardCount === 2 && (
@@ -98,10 +94,10 @@ const SelectedLand = () => {
               Back
             </button>
           </div>
-          <div className="flex gap-4 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[581px] max-h-[581px] max-w-[588px] w-full lg:min-w-[588px] p-2">
+          <div className="flex gap-4 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[400px] max-h-[400px] md:min-h-[581px] md:max-h-[581px] max-w-[588px] w-full lg:min-w-[588px] p-2">
             <div className="bg-white rounded-3xl p-3 flex flex-col lg:flex-row gap-4 items-start justify-start grow self-stretch overflow-y-auto max-h-[581px]">
               {/* Left */}
-              <div className="flex flex-col items-start justify-start gap-2 max-w-[330px] lg:max-w-[144px]">
+              <div className="flex flex-col items-start justify-start gap-2 max-w-[300px] lg:max-w-[144px]">
                 <div className="bg-[#489BFA] rounded-xl flex items-center justify-center p-2">
                   <Image
                     src={item.image}
@@ -332,7 +328,7 @@ const SelectedLand = () => {
                           </div>
                         </div>
                         <YieldGraph />
-                        <div className="absolute bottom-1 flex flex-wrap justify-between items-center gap-1 w-[83%]">
+                        <div className="absolute bottom-1 flex flex-wrap justify-between items-center gap-1 w-full pr-1">
                           <div className="flex items-center gap-1 p-2">
                             <h1 className="ty-title text-yellow-4">APR</h1>
                             <h1
