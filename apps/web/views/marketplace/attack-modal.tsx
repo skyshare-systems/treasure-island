@@ -9,6 +9,7 @@ import Result from "@/components/result";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
 import Loading from "@/components/loading";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
+import { useSelectedLand } from "@/lib/store/selected-land-store";
 
 const AttackModal = () => {
   const [val, setVal] = useState([50]);
@@ -19,6 +20,7 @@ const AttackModal = () => {
   const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
     (state) => state
   );
+  const { item } = useSelectedLand((state) => state);
 
   function determineOutcome() {
     setIsShowAttackModal(true);
@@ -92,17 +94,17 @@ const AttackModal = () => {
               <div className="flex flex-wrap justify-evenly items-start gap-2 max-w-[424px] min-h-[180px]">
                 <AttackCard
                   title={"Island Price"}
-                  value={"41,859.25"}
+                  value={item.sui}
                   className={"ty-h6"}
                 />
                 <AttackCard
                   title={"Attack Price"}
-                  value={"39.48"}
+                  value={item.token}
                   className={"ty-h4"}
                 />
                 <AttackCard
                   title={"Owner Commission"}
-                  value={"3.94"}
+                  value={item.percentage}
                   className={"ty-h6"}
                 />
               </div>
@@ -133,7 +135,11 @@ const AttackModal = () => {
         )}
 
         {result && (
-          <Result result={result} handleShowResult={handleShowResult} />
+          <Result
+            result={result}
+            handleShowResult={handleShowResult}
+            attackPercentage={val}
+          />
         )}
       </div>
     </>

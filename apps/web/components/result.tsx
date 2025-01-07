@@ -7,10 +7,36 @@ import { useSelectedLand } from "@/lib/store/selected-land-store";
 interface IResultModal {
   result: string;
   handleShowResult: any;
+  attackPercentage: any;
 }
 
-const Result = ({ result, handleShowResult }: IResultModal) => {
+const Result = ({
+  result,
+  handleShowResult,
+  attackPercentage,
+}: IResultModal) => {
   const { item } = useSelectedLand((state) => state);
+
+  const computeAttackPrice = (islandPrice, attackPercentage) => {
+    if (attackPercentage < 1 || attackPercentage > 100) {
+      throw new Error("Attack percentage must be between 1 and 100.");
+    }
+
+    // Linear interpolation of the multiplier based on attack percentage
+    const minMultiplier = 1.624; // Multiplier for 1% probability
+    const maxMultiplier = 1.03; // Multiplier for 100% probability
+    const multiplier =
+      minMultiplier -
+      ((minMultiplier - maxMultiplier) / 99) * (attackPercentage - 1);
+
+    // Theoretical cost as a percentage of the island price
+    const theoreticalCost = (attackPercentage / 100) * islandPrice;
+
+    // Total cost including the multiplier
+    const attackPrice = theoreticalCost * multiplier;
+
+    return attackPrice;
+  };
 
   return (
     <div className="flex flex-col justify-center items-center gap-4">
@@ -69,7 +95,10 @@ const Result = ({ result, handleShowResult }: IResultModal) => {
                 />
 
                 <h1 className={cn(fredoka.className, "ty-h6 text-black")}>
-                  41,859.25
+                  {(
+                    Number(item.sui) +
+                    Number(computeAttackPrice(item?.sui, attackPercentage))
+                  ).toFixed(2)}
                 </h1>
               </div>
               <h1
@@ -85,7 +114,7 @@ const Result = ({ result, handleShowResult }: IResultModal) => {
             <div className="flex flex-col justify-center items-center gap-1 min-w-[131px]">
               <div className="flex items-center gap-1">
                 <h1 className={cn(fredoka.className, " apr ty-h4")}>
-                  <span className="stroke-letter">41,859.25</span>
+                  <span className="stroke-letter">{item.percentage}</span>
                 </h1>
               </div>
               <h1
@@ -105,7 +134,7 @@ const Result = ({ result, handleShowResult }: IResultModal) => {
                 />
 
                 <h1 className={cn(fredoka.className, "ty-h6 text-black")}>
-                  39.48
+                  {computeAttackPrice(item?.sui, attackPercentage).toFixed(2)}
                 </h1>
               </div>
               <h1
