@@ -18,16 +18,16 @@ import Swap from "@/views/swap/page";
 const WalletHub = () => {
   const { zoomIn, zoomOut, resetTransform, centerView } = useControls();
 
-  function handleFunction() {
-    resetTransform();
-    centerView();
-  }
-
   const { setDashboardCount, dashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setItem } = useToken0((state) => state);
   const { setItem: setItem1 } = useToken1((state) => state);
+
+  function handleFunction() {
+    resetTransform();
+    setDashboardCount(0);
+  }
 
   function handleBuck() {
     setDashboardCount(3);
@@ -157,7 +157,7 @@ const WalletHub = () => {
         </div>
       </div>
 
-      <div className="fixed flex flex-col items-end justify-end  gap-2 bottom-[4rem] right-0 px-4 z-[3]">
+      <div className="fixed flex lg:hidden flex-col items-end justify-end  gap-2 bottom-[4rem] right-0 px-4 z-[3]">
         <Dashboard />
         <Marketplace />
 
