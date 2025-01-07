@@ -1,17 +1,73 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loading from "@/components/loading-first";
 import LandCard from "@/components/land-card";
-import {
-  TransformWrapper,
-  TransformComponent,
-  useControls,
-} from "react-zoom-pan-pinch";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import WalletHub from "@/components/wallet-hub";
 import Marketplace from "./marketplace/page";
+import { fredoka } from "@/public/fonts";
+import { cn } from "@/lib/utils";
+import { useAttackModal } from "@/lib/store/attack-modal-store";
+import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
+import { useSelectedLand } from "@/lib/store/selected-land-store";
+import ArrowUpRight from "@/components/icon/arrow-up-right";
+import Image from "next/image";
+import TokenIcon from "@/components/icon/token";
+import PercentageIcon from "@/components/icon/percentage";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(false);
+  const { setIsShowAttackModal } = useAttackModal((state) => state);
+  const { dashboardCount, setDashboardCount } = useDashboardModal(
+    (state) => state
+  );
+  const { setItem, item } = useSelectedLand((state) => state);
+
+  function handleAttack(
+    name,
+    tag,
+    type,
+    variant,
+    image,
+    sui,
+    token,
+    percentage
+  ) {
+    setItem({
+      name,
+      tag,
+      type,
+      variant,
+      image,
+      sui,
+      token,
+      percentage,
+    });
+    setIsShowAttackModal(true);
+  }
+
+  function handleViewData(
+    name,
+    tag,
+    type,
+    variant,
+    image,
+    sui,
+    token,
+    percentage
+  ) {
+    setItem({
+      name,
+      tag,
+      type,
+      variant,
+      image,
+      sui,
+      token,
+      percentage,
+    });
+    setDashboardCount(2);
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -25,12 +81,107 @@ const MainGame = () => {
     <div className="relative flex justify-center items-center">
       {loading && <Loading />}
 
+      {dashboardCount === 4 && (
+        <div
+          className={cn(
+            "fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center ease-out duration-300 max-w-[214px] z-[9999]"
+          )}
+        >
+          <div className="relative bg-neutral-8 min-w-[214px]  pb-4 p-3 rounded-2xl flex flex-col gap-2 ">
+            <div className="flex justify-between items-start">
+              <div className="flex flex-col">
+                <h1
+                  className={cn(fredoka.className, "ty-title text-neutral-1")}
+                >
+                  {item.name}
+                </h1>
+                <h1
+                  className={cn(
+                    fredoka.className,
+                    "ty-subtitle text-neutral-3"
+                  )}
+                >
+                  {item.tag}
+                </h1>
+              </div>
+              <div className="pl-4 pb-4 flex items-center gap-2">
+                <button
+                  onClick={() =>
+                    handleViewData(
+                      item.name,
+                      item.tag,
+                      item.type,
+                      item.variant,
+                      item.image,
+                      item.sui,
+                      item.token,
+                      item.percentage
+                    )
+                  }
+                >
+                  <ArrowUpRight />
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap justify-between items-center gap-1 w-full">
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+                <Image
+                  src={"/icons/sui.png"}
+                  alt={"sui"}
+                  height={14}
+                  width={14}
+                  unoptimized
+                />
+                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                  {item.sui}
+                </h1>
+              </div>
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+                <TokenIcon />
+
+                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                  {item.token}
+                </h1>
+              </div>
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+                <PercentageIcon />
+
+                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                  {item.percentage}
+                </h1>
+              </div>
+            </div>
+
+            <button
+              onClick={() =>
+                handleAttack(
+                  item.name,
+                  item.tag,
+                  item.type,
+                  item.variant,
+                  item.image,
+                  item.sui,
+                  item.token,
+                  item.percentage
+                )
+              }
+              className={cn(
+                fredoka.className,
+                "ty-title text-white pt-[5px] pb-[5px] button-layout rounded-[8px] w-full text-center"
+              )}
+            >
+              Attack!
+            </button>
+          </div>
+        </div>
+      )}
+
       <TransformWrapper
-        initialScale={4}
+        initialScale={2}
         initialPositionX={0}
         initialPositionY={0}
-        centerOnInit
-        minScale={2}
+        minScale={1.5}
       >
         {({ zoomIn, zoomOut, resetTransform, centerView, ...rest }) => (
           <>
@@ -54,8 +205,6 @@ const MainGame = () => {
                     imageClassName={
                       "max-w-[200px] lg:max-w-[90px] w-full flex justify-center items-center"
                     }
-                    allign={"right-top"}
-                    dialogPosition={"top-[1rem] -left-[8rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />
@@ -73,8 +222,6 @@ const MainGame = () => {
                     imageClassName={
                       "max-w-[200px] lg:max-w-[90px] w-full flex justify-center items-center"
                     }
-                    allign={"left-top"}
-                    dialogPosition={"top-[1rem] left-[4rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />
@@ -99,8 +246,6 @@ const MainGame = () => {
                     imageClassName={
                       "max-w-[200px] lg:max-w-[90px] w-full flex justify-center items-center"
                     }
-                    allign={"left-top"}
-                    dialogPosition={"top-[1rem] left-[4rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />
@@ -122,8 +267,6 @@ const MainGame = () => {
                     token={22}
                     percentage={1.3}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"left-top"}
-                    dialogPosition={"top-[1rem] left-[4rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />{" "}
@@ -143,8 +286,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"C"}
                     variant={"emerald"}
                   />{" "}
@@ -162,8 +303,6 @@ const MainGame = () => {
                     token={39}
                     percentage={2.57}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"left-top"}
-                    dialogPosition={"top-[1rem] left-[4rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />{" "}
@@ -183,8 +322,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"C"}
                     variant={"emerald"}
                   />{" "}
@@ -204,8 +341,6 @@ const MainGame = () => {
                     token={12}
                     percentage={1.14}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"right-top"}
-                    dialogPosition={"top-[1rem] -left-[8rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />{" "}
@@ -223,8 +358,6 @@ const MainGame = () => {
                     token={53}
                     percentage={2.01}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"bottom"}
-                    dialogPosition={"-top-[8rem]"}
                     type={"A"}
                     variant={"platinum"}
                   />{" "}
@@ -241,8 +374,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -266,8 +397,6 @@ const MainGame = () => {
                     token={12}
                     percentage={1.1}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -287,8 +416,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -309,8 +436,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"B"}
                     variant={"diamond"}
                   />{" "}
@@ -328,8 +453,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"B"}
                     variant={"diamond"}
                   />{" "}
@@ -356,8 +479,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -385,8 +506,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"top"}
-                    dialogPosition={"top-[3rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -413,8 +532,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"bottom"}
-                    dialogPosition={"-top-[5rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
@@ -432,8 +549,6 @@ const MainGame = () => {
                     token={6}
                     percentage={1.4}
                     imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-                    allign={"bottom"}
-                    dialogPosition={"-top-[5rem]"}
                     type={"D"}
                     variant={"gold"}
                   />{" "}
