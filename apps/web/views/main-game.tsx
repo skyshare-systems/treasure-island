@@ -84,10 +84,10 @@ const MainGame = () => {
       {dashboardCount === 4 && (
         <div
           className={cn(
-            "fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center items-center ease-out duration-300 max-w-[214px] z-[9999]"
+            "fixed bottom-[4.3rem] lg:bottom-4 right-4 lg:left-1/2 lg:transform lg:-translate-x-1/2 flex justify-center items-center ease-out duration-300 md:max-w-[214px] z-[9999]"
           )}
         >
-          <div className="relative bg-neutral-8 min-w-[214px]  pb-4 p-3 rounded-2xl flex flex-col gap-2 ">
+          <div className="relative bg-neutral-8 md:min-w-[214px]  pb-4 p-3 rounded-2xl flex flex-col gap-2 ">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
                 <h1
@@ -124,8 +124,8 @@ const MainGame = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-between items-center gap-1 w-full">
-              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-1 w-full">
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg md:grow w-full md:w-auto relative group/sui">
                 <Image
                   src={"/icons/sui.png"}
                   alt={"sui"}
@@ -136,20 +136,51 @@ const MainGame = () => {
                 <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
                   {item.sui}
                 </h1>
+
+                <div className="group-hover/sui:block hidden absolute top-2 left-2 bg-white rounded-lg p-2 max-w-[248px] min-w-[248px]">
+                  <div className="flex flex-col gap-1 items-start bg-[#0000000A] p-2 rounded-lg">
+                    <h1 className="ty-subtitle text-black">Island Price</h1>
+                    <p className="text-neutral-1 ty-subtext">
+                      Value of the island in $BUCK if you want a 100% winrate in
+                      attacking this island.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg md:grow w-full md:w-auto group/token relative">
                 <TokenIcon />
 
                 <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
                   {item.token}
                 </h1>
+
+                <div className="group-hover/token:block hidden absolute top-2 left-2 bg-white rounded-lg p-2 max-w-[248px] min-w-[248px]">
+                  <div className="flex flex-col gap-1 items-start bg-[#0000000A] p-2 rounded-lg">
+                    <h1 className="ty-subtitle text-black">BUT Rewards</h1>
+                    <p className="text-neutral-1 ty-subtext">
+                      Value of total BUT rewards this island is currently
+                      generating.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg grow">
+
+              <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg md:grow w-full md:w-auto group/apr relative">
                 <PercentageIcon />
 
                 <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
                   {item.percentage}
                 </h1>
+
+                <div className="group-hover/apr:block hidden absolute top-2 left-2 bg-white rounded-lg p-2 max-w-[248px] min-w-[248px]">
+                  <div className="flex flex-col gap-1 items-start bg-[#0000000A] p-2 rounded-lg">
+                    <h1 className="ty-subtitle text-black">APR</h1>
+                    <p className="text-neutral-1 ty-subtext">
+                      Annual percentage return of BUT being generated on this
+                      island
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -194,7 +225,6 @@ const MainGame = () => {
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full  flex justify-center items-center" />
                 <div className=" max-w-[200px] max-h-[200px]  bg-[#1c82f7] flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[2.5rem] left-[23rem] md:left-[43rem]"}
                     className=""
                     image={"/assets/lands/image-1.png"}
                     name={"Konoha"}
@@ -235,7 +265,6 @@ const MainGame = () => {
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full  flex justify-center items-center"></div>
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[2.5rem] left-[49rem] md:left-[69rem]"}
                     className="max-w-[220px] flex justify-center items-center"
                     image={"/assets/lands/image-2.png"}
                     name={"Mirai Land"}
@@ -277,7 +306,6 @@ const MainGame = () => {
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center" />
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[28.4rem] left-[87rem] md:left-[107rem]"}
                     className=""
                     image={"/assets/lands/image-12.png"}
                     name={"Loki's Hideout"}
@@ -294,11 +322,10 @@ const MainGame = () => {
                 {/* row 4 */}
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[42rem] left-[10rem] md:left-[30rem]"}
                     className="hover:z-[3]"
                     image={"/assets/lands/image-5.png"}
                     name={"Sacred Land of Japan"}
-                    tag={"@japanesegovernment"}
+                    tag={"@pandagovernment"}
                     sui={194}
                     token={39}
                     percentage={2.57}
@@ -313,7 +340,6 @@ const MainGame = () => {
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center" />
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[40.5rem] left-[75rem] md:left-[95rem]"}
                     className=""
                     image={"/assets/lands/image-13.png"}
                     name={"Emerald City of Oz"}
@@ -332,7 +358,6 @@ const MainGame = () => {
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center" />
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center">
                   <LandCard
-                    // className={"absolute top-[54rem] left-[23rem] md:left-[43rem]"}
                     className="hover:z-[2]"
                     image={"/assets/lands/image-6.png"}
                     name={"Cherry Land"}
@@ -347,9 +372,6 @@ const MainGame = () => {
                 </div>
                 <div className="max-w-[200px] max-h-[200px]  bg-[#1c82f7] h-full w-full flex justify-center items-center">
                   <LandCard
-                    // className={
-                    //   "absolute top-[54rem] left-[36rem] md:left-[56rem] hover:z-[2]"
-                    // }
                     className="hover:z-[2]"
                     image={"/assets/lands/image-7.png"}
                     name={"AEON land"}
@@ -392,7 +414,7 @@ const MainGame = () => {
                     className=""
                     image={"/assets/lands/image-8.png"}
                     name={"Panda Express"}
-                    tag={"@chinesekitchen"}
+                    tag={"@pandakitchen"}
                     sui={31}
                     token={12}
                     percentage={1.1}

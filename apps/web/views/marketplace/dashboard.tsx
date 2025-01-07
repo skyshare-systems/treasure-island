@@ -8,10 +8,6 @@ import SwapView from "../swap/swap-view";
 const Dashboard = () => {
   const { dashboardCount } = useDashboardModal((state) => state);
 
-  useEffect(() => {
-    console.log(dashboardCount);
-  }, [dashboardCount]);
-
   if (dashboardCount <= 0) return null;
   return (
     <>

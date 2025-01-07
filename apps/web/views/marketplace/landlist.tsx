@@ -67,7 +67,7 @@ const LandList = () => {
     },
     {
       name: "Sacred Land of Japan",
-      tag: "@japanesegovernment",
+      tag: "@pandagovernment",
       type: "A",
       variant: "platinum",
       image: "/assets/lands/image-5.png",
@@ -150,7 +150,7 @@ const LandList = () => {
   const gold = [
     {
       name: "Panda Express",
-      tag: "@chinesekitchen",
+      tag: "@pandakitchen",
       type: "D",
       variant: "gold",
       image: "/assets/lands/image-8.png",
