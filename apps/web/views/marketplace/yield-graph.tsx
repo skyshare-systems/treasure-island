@@ -111,7 +111,7 @@ const YieldGraph = () => {
   };
 
   return (
-    <div style={{ height: 144, width: windowSize?.[0] > 1024 ? 360 : 320 }}>
+    <div style={{ height: 144, width: windowSize?.[0] > 1024 ? 366 : 280 }}>
       <Line
         ref={chartRef}
         data={data}
