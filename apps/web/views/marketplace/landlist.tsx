@@ -7,16 +7,13 @@ import Image from "next/image";
 import TokenIcon from "@/components/icon/token";
 import PercentageIcon from "@/components/icon/percentage";
 import Filter from "@/components/filter";
-import AttackModal from "./attack-modal";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
-import ArrowLeft from "@/components/icon/arrow-left";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { useControls } from "react-zoom-pan-pinch";
 
 const LandList = () => {
   const { zoomToElement } = useControls();
-
   const [selectedFilter, setSelectedFilter] = useState("Gold");
   const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
     (state) => state
@@ -264,7 +261,6 @@ const LandList = () => {
       token,
       percentage,
     });
-
     setDashboardCount(2);
   }
 
@@ -288,14 +284,13 @@ const LandList = () => {
       token,
       percentage,
     });
-
     setIsShowAttackModal(true);
   }
 
   return (
     <>
       {dashboardCount === 1 && (
-        <div className="flex flex-col gap-2 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[581px] max-h-[581px] max-w-[588px] md:min-w-[588px] p-2">
+        <div className="flex flex-col gap-2 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[400px] max-h-[400px] md:min-h-[581px] md:max-h-[581px] max-w-[588px] md:min-w-[588px] p-2">
           <Filter
             filterData={filter}
             setSelectedFilter={setSelectedFilter}
