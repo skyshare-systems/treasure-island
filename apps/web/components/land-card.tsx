@@ -48,6 +48,7 @@ const LandCard = ({ ...props }: ILandCard) => {
   }
   return (
     <button
+      id={props.name}
       onClick={() =>
         handleViewData(
           props.name,
@@ -60,7 +61,6 @@ const LandCard = ({ ...props }: ILandCard) => {
           props.percentage
         )
       }
-      id={props.name}
       className={cn(
         props.className,
         "relative flex flex-col items-center max-w-[200px] hover:brightness-125 hover:scale-105 active:scale-100 cursor-pointer duration-300 ease-out"
