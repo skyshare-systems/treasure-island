@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Loading from "@/components/loading-first";
-import LandCard from "@/components/land-card";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import WalletHub from "@/components/wallet-hub";
 import Marketplace from "./marketplace/page";
@@ -230,7 +229,7 @@ const MainGame = () => {
             <Marketplace />
             <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
               <TransformComponent>
-                <div className="rounded-2xl relative h-[99dvh] w-[99dvw] lg:w-[70dvw] lg:mx-[5rem]">
+                <div className="rounded-2xl relative h-[99dvh] w-[99dvw] lg:w-[70dvw] lg:mx-[5rem]  max-w-[1440px]">
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div

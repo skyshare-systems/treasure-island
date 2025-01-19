@@ -15,7 +15,6 @@ import { CheckIcon, CopyIcon } from "lucide-react";
 import Graph from "./graph";
 import YieldGraph from "./yield-graph";
 import TokenIcon from "@/components/icon/token";
-import useSize from "@/hooks/useWindowSize";
 
 const SelectedLand = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(

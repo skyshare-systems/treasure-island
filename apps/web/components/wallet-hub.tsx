@@ -65,7 +65,7 @@ const WalletHub = () => {
     <>
       <div className="fixed bottom-0 left-0 z-[2]">
         <div className="flex flex-col gap-2 p-4 items-start justify-start max-w-[178px] ">
-          <button
+          {/* <button
             onClick={() => handleFunction()}
             className="flex justify-center items-center gap-1 p-2 border bg-white rounded-2xl h-10 w-h-10"
           >
@@ -83,8 +83,8 @@ const WalletHub = () => {
                 fill="#141B34"
               />
             </svg>
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={() => zoomIn()}
             className="flex justify-center items-center gap-1 p-2 border bg-white rounded-2xl h-10 w-h-10"
           >
@@ -95,7 +95,7 @@ const WalletHub = () => {
             className="flex justify-center items-center gap-1 p-2 border bg-white rounded-2xl h-10 w-h-10"
           >
             <ZoomOut />
-          </button>
+          </button> */}
 
           <button
             onClick={handleBuck}
