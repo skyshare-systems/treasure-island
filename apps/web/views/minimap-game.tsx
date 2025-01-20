@@ -1,3 +1,4 @@
+"use client";
 import ZoomIn from "@/components/icon/zoom-in";
 import ZoomOut from "@/components/icon/zoom-out";
 import { items } from "@/components/items";

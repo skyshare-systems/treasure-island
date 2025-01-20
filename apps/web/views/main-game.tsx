@@ -225,7 +225,7 @@ const MainGame = () => {
         {({ zoomIn, zoomOut, resetTransform, centerView, ...rest }) => (
           <>
             <WalletHub />
-            <MinimapGame />
+            {/* <MinimapGame /> */}
             <Marketplace />
             <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
               <TransformComponent>

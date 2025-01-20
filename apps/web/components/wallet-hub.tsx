@@ -4,9 +4,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
 import TokenIcon from "./icon/token";
-import { useControls } from "react-zoom-pan-pinch";
-import ZoomIn from "./icon/zoom-in";
-import ZoomOut from "./icon/zoom-out";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useToken0, useToken1 } from "@/lib/store/token-store";
 import Marketplace from "@/views/marketplace/page";
@@ -16,18 +13,11 @@ import Dashboard from "@/views/marketplace/dashboard";
 import Swap from "@/views/swap/page";
 
 const WalletHub = () => {
-  const { zoomIn, zoomOut, resetTransform, centerView } = useControls();
-
   const { setDashboardCount, dashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setItem } = useToken0((state) => state);
   const { setItem: setItem1 } = useToken1((state) => state);
-
-  function handleFunction() {
-    resetTransform();
-    setDashboardCount(0);
-  }
 
   function handleBuck() {
     setDashboardCount(3);
@@ -160,12 +150,6 @@ const WalletHub = () => {
       <div className="fixed flex lg:hidden flex-col items-end justify-end  gap-2 bottom-[4rem] right-0 px-4 z-[3]">
         <Dashboard />
         <Marketplace />
-
-        {/* <div className="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-4">
-          <Swap />
-
-     
-        </div> */}
       </div>
     </>
   );
