@@ -597,34 +597,20 @@ export const items = [
     land: <></>,
   },
   {
-    name: "Pink Panther",
-    tag: "0x1412…4120",
-    type: "A",
-    variant: "platinum",
-    image: "/assets/lands/image-4.png",
-    sui: 37,
-    token: 22,
-    percentage: 1.3,
+    name: "",
+    tag: "",
+    type: "",
+    variant: "",
+    image: "",
+    sui: "",
+    token: "",
+    percentage: "",
     id: 39,
-    label: "Pink Panther",
-    color: "#DE5995",
-    land: (
-      <>
-        <LandCard
-          className={""}
-          image={"/assets/lands/image-4.png"}
-          name={"Pink Panther"}
-          tag={"0x1412…4120"}
-          sui={37}
-          token={22}
-          percentage={1.3}
-          imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
-          type={"A"}
-          variant={"platinum"}
-        />
-      </>
-    ),
+    label: "Item 39",
+    color: "#f9f9f9",
+    land: <></>,
   },
+
   {
     name: "Cherry Land",
     tag: "@wara",
@@ -810,27 +796,27 @@ export const items = [
     land: <></>,
   },
   {
-    name: "Cherry Land",
-    tag: "@wara",
+    name: "Pink Panther",
+    tag: "0x1412…4120",
     type: "A",
     variant: "platinum",
-    image: "/assets/lands/image-6.png",
-    sui: 88,
-    token: 12,
-    percentage: 1.14,
+    image: "/assets/lands/image-4.png",
+    sui: 37,
+    token: 22,
+    percentage: 1.3,
     id: 51,
-    label: "Cherry Land",
+    label: "Pink Panther",
     color: "#DE5995",
     land: (
       <>
         <LandCard
-          className="hover:z-[2]"
-          image={"/assets/lands/image-6.png"}
-          name={"Cherry Land"}
-          tag={"@wara"}
-          sui={88}
-          token={12}
-          percentage={1.14}
+          className={""}
+          image={"/assets/lands/image-4.png"}
+          name={"Pink Panther"}
+          tag={"0x1412…4120"}
+          sui={37}
+          token={22}
+          percentage={1.3}
           imageClassName={"max-w-[200px] lg:max-w-[90px] w-full"}
           type={"A"}
           variant={"platinum"}

@@ -230,6 +230,7 @@ const MainGame = () => {
             <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
               <TransformComponent>
                 <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px]">
+                  <div className="absolute -mt-[2.2rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div
