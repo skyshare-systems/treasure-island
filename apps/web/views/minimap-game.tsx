@@ -2,7 +2,6 @@
 import ZoomIn from "@/components/icon/zoom-in";
 import ZoomOut from "@/components/icon/zoom-out";
 import { items } from "@/components/items";
-import useSize from "@/hooks/useWindowSize";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
@@ -10,11 +9,11 @@ import { fredoka } from "@/public/fonts";
 import { XIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useControls } from "react-zoom-pan-pinch";
+import dynamic from "next/dynamic";
 
 const MinimapGame = () => {
-  const [isShowMap, setIsShowMap] = useState(true);
+  const [isShowMap, setIsShowMap] = useState(false);
   const { zoomIn, zoomOut, zoomToElement } = useControls();
-  const windowSize = useSize();
   const { setItem, item } = useSelectedLand((state) => state);
   const { setDashboardCount } = useDashboardModal((state) => state);
 
@@ -50,14 +49,6 @@ const MinimapGame = () => {
     zoomToElement(name);
     setDashboardCount(4);
   }
-
-  useEffect(() => {
-    if (windowSize[0] > 1024) {
-      setIsShowMap(false);
-    } else {
-      setIsShowMap(true);
-    }
-  }, [windowSize[0]]);
 
   return (
     <>
