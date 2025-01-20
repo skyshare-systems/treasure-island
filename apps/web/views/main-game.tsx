@@ -229,7 +229,7 @@ const MainGame = () => {
             <Marketplace />
             <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
               <TransformComponent>
-                <div className="rounded-2xl relative h-[99dvh] w-[99dvw] lg:w-[70dvw] lg:mx-[5rem]  max-w-[1440px]">
+                <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px]">
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div
