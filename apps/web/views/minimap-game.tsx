@@ -47,7 +47,9 @@ const MinimapGame = () => {
       percentage,
     });
     zoomToElement(name);
-    setDashboardCount(4);
+    if (name !== "") {
+      setDashboardCount(4);
+    }
   }
 
   return (

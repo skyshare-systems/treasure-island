@@ -233,7 +233,7 @@ export const items = [
     token: 12,
     percentage: 1.4,
     id: 16,
-    label: "Item 16",
+    label: "Konoha",
     color: "#DE5995",
     land: (
       <>
@@ -278,7 +278,7 @@ export const items = [
     token: 30,
     percentage: 1.8,
     id: 18,
-    label: "Item 18",
+    label: "Planet Namek",
     color: "#DE5995",
     land: (
       <>
@@ -449,7 +449,7 @@ export const items = [
     token: 47,
     percentage: 1.1,
     id: 29,
-    label: "Item 29",
+    label: "Mirai Land",
     color: "#DE5995",
     land: (
       <>
@@ -606,7 +606,7 @@ export const items = [
     token: 22,
     percentage: 1.3,
     id: 39,
-    label: "Item 39",
+    label: "Pink Panther",
     color: "#DE5995",
     land: (
       <>
@@ -635,7 +635,7 @@ export const items = [
     token: 12,
     percentage: 1.14,
     id: 40,
-    label: "Item 40",
+    label: "Cherry Land",
     color: "#DE5995",
     land: (
       <>
@@ -720,7 +720,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 45,
-    label: "Item 45",
+    label: "Loki's Hideout",
     color: "#C6E67A",
     land: (
       <>
@@ -819,7 +819,7 @@ export const items = [
     token: 12,
     percentage: 1.14,
     id: 51,
-    label: "Item 51",
+    label: "Cherry Land",
     color: "#DE5995",
     land: (
       <>
@@ -904,7 +904,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 56,
-    label: "Item 56",
+    label: "Emerald City of Oz",
     color: "#C6E67A",
     land: (
       <>
@@ -1031,7 +1031,7 @@ export const items = [
     token: 53,
     percentage: 2.01,
     id: 64,
-    label: "Item 64",
+    label: "AEON land",
     color: "#DE5995",
     land: (
       <>
@@ -1060,7 +1060,7 @@ export const items = [
     token: 53,
     percentage: 2.01,
     id: 65,
-    label: "Item 65",
+    label: "AEON land V2",
     color: "#DE5995",
     land: (
       <>
@@ -1103,7 +1103,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 67,
-    label: "Item 67",
+    label: "Shang Chi",
     color: "#7AE67F",
     land: (
       <>
@@ -1258,7 +1258,7 @@ export const items = [
     token: 12,
     percentage: 1.1,
     id: 77,
-    label: "Item 77",
+    label: "Panda Express",
     color: "#7AE67F",
     land: (
       <>
@@ -1315,7 +1315,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 80,
-    label: "Item 80",
+    label: "Bambooman",
     color: "#7AE67F",
     land: (
       <>
@@ -1429,7 +1429,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 87,
-    label: "Item 87",
+    label: "Zen's Tropics V2",
     color: "#DE9B0B",
     land: (
       <>
@@ -1458,7 +1458,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 88,
-    label: "Item 88",
+    label: "Ancient Egypt V2",
     color: "#DE9B0B",
     land: (
       <>
@@ -1655,7 +1655,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 101,
-    label: "Item 101",
+    label: "Zen's Tropics",
     color: "#7AE67F",
     land: (
       <>
@@ -1698,7 +1698,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 103,
-    label: "Item 103",
+    label: "Pls dont attacc me",
     color: "#7AE67F",
     land: (
       <>
@@ -1895,7 +1895,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 116,
-    label: "Item 116",
+    label: "KungFu Panda",
     color: "#7AE67F",
     land: (
       <>
@@ -1938,7 +1938,7 @@ export const items = [
     token: 6,
     percentage: 1.4,
     id: 118,
-    label: "Item 118",
+    label: "KungFu Panda 2",
     color: "#7AE67F",
     land: (
       <>

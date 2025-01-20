@@ -89,7 +89,7 @@ const MainGame = () => {
     <div className="relative flex justify-center items-center">
       {loading && <Loading />}
 
-      {dashboardCount === 4 && (
+      {dashboardCount === 4 && item?.name !== "" && (
         <div
           className={cn(
             "fixed bottom-[4.3rem] lg:bottom-4 right-4 lg:left-1/2 lg:transform lg:-translate-x-1/2 flex justify-center items-center ease-out duration-300 md:max-w-[214px] z-[9999]"
