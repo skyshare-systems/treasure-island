@@ -71,6 +71,7 @@ const AttackModal = () => {
   return (
     <>
       {loading && <Loading />}
+      <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
 
       <div className="fixed top-0 left-0 backdrop-blur-lg h-full w-full flex justify-center items-center z-[999999] overflow-hidden">
         {result === null && (

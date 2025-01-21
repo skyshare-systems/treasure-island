@@ -28,6 +28,7 @@ const MainGame = () => {
   const { setItem, item } = useSelectedLand((state) => state);
   const openModalMusic = useRef<any>();
   const closeModalMusic = useRef<any>();
+  const [muteMusic, setMuteMusic] = useState(false);
 
   const {
     isPlaying,
@@ -113,6 +114,10 @@ const MainGame = () => {
     gridTemplateRows: "repeat(10, 1fr)", // 12 rows
     gap: "2px", // Space between grid items
   };
+
+  useEffect(() => {
+    if (!isShowAttackModal) audioBgMusicAttack?.current?.pause();
+  }, [muteMusic]);
 
   return (
     <div className="relative flex justify-center items-center">
