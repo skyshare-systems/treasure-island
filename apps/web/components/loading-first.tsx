@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import useSound from "use-sound";
 
 const LoadingFirst = () => {
   // const loading_bg_music = useRef<any>();
