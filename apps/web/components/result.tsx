@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
+import useMusic from "@/hooks/useMusic";
 
 interface IResultModal {
   result: string;

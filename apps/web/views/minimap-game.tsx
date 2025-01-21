@@ -4,6 +4,7 @@ import MuteMusicIcon from "@/components/icon/mute-music";
 import ZoomIn from "@/components/icon/zoom-in";
 import ZoomOut from "@/components/icon/zoom-out";
 import { items } from "@/components/items";
+import useMusic from "@/hooks/useMusic";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
@@ -14,11 +15,16 @@ import { useControls } from "react-zoom-pan-pinch";
 
 const MinimapGame = () => {
   const [isShowMap, setIsShowMap] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioBgMusic = useRef<any>();
   const { zoomIn, zoomOut, zoomToElement } = useControls();
   const { setItem, item } = useSelectedLand((state) => state);
   const { setDashboardCount } = useDashboardModal((state) => state);
+
+  const {
+    isPlaying,
+    audioBgMusic,
+
+    setIsPlaying,
+  } = useMusic();
 
   const gridContainerStyle = {
     display: "grid",
@@ -51,6 +57,7 @@ const MinimapGame = () => {
     });
     zoomToElement(name);
     if (name !== "") {
+      landClick();
       setDashboardCount(4);
     }
   }
@@ -70,10 +77,21 @@ const MinimapGame = () => {
     audio.play();
     setIsShowMap(!isShowMap);
   }
+
   function handleClose() {
     var audio = new Audio("/music/modal-close.mp3");
     audio.play();
     setIsShowMap(!isShowMap);
+  }
+
+  function landHover() {
+    var audio = new Audio("/music/land-hover.mp3");
+    audio.play();
+  }
+
+  function landClick() {
+    var audio = new Audio("/music/land-click.mp3");
+    audio.play();
   }
 
   return (
@@ -137,6 +155,7 @@ const MinimapGame = () => {
                       item.percentage
                     )
                   }
+                  onMouseEnter={() => item?.name !== "" && landHover()}
                 ></div>
               ))}
             </div>

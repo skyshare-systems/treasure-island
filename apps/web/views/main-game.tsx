@@ -15,16 +15,27 @@ import TokenIcon from "@/components/icon/token";
 import PercentageIcon from "@/components/icon/percentage";
 import MinimapGame from "./minimap-game";
 import { items } from "@/components/items";
+import useMusic from "@/hooks/useMusic";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(true);
-  const { setIsShowAttackModal } = useAttackModal((state) => state);
+  const { setIsShowAttackModal, isShowAttackModal } = useAttackModal(
+    (state) => state
+  );
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setItem, item } = useSelectedLand((state) => state);
   const openModalMusic = useRef<any>();
   const closeModalMusic = useRef<any>();
+
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+  } = useMusic();
 
   function handleClick() {
     var audio = new Audio("/music/modal-open.mp3");
@@ -58,6 +69,9 @@ const MainGame = () => {
       token,
       percentage,
     });
+    setIsPlaying(false);
+    audioBgMusic?.current?.pause();
+    audioBgMusicAttack?.current?.play();
     setIsShowAttackModal(true);
   }
 
@@ -103,6 +117,7 @@ const MainGame = () => {
   return (
     <div className="relative flex justify-center items-center">
       {loading && <Loading />}
+      <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
 
       {dashboardCount === 4 && item?.name !== "" && (
         <div

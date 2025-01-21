@@ -10,30 +10,41 @@ import { useAttackModal } from "@/lib/store/attack-modal-store";
 import Loading from "@/components/loading";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
+import useMusic from "@/hooks/useMusic";
 
 const AttackModal = () => {
   const [val, setVal] = useState([50]);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const { setDashboardCount } = useDashboardModal((state) => state);
+  const [muteMusic, setMuteMusic] = useState(false);
 
   const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
     (state) => state
   );
   const { item } = useSelectedLand((state) => state);
+  const { audioBgMusicAttack } = useMusic();
 
   function determineOutcome() {
     setIsShowAttackModal(true);
     setLoading(true);
-
+    setMuteMusic(false);
     const randomNumber = Math.random() * 100;
 
     setTimeout(() => {
+      setIsShowAttackModal(false);
+
       setLoading(false);
       if (randomNumber < val[0]) {
         setResult("You Win!");
+        audioBgMusicAttack?.current?.pause();
+        var audio = new Audio("/music/you-win.mp3");
+        audio.play();
       } else {
         setResult("You Lose!");
+        audioBgMusicAttack?.current?.pause();
+        var audio = new Audio("/music/you-lost.mp3");
+        audio.play();
       }
 
       setIsShowAttackModal(true);
@@ -44,6 +55,15 @@ const AttackModal = () => {
     setResult(null);
     setIsShowAttackModal(false);
     setDashboardCount(2);
+  }
+
+  function handleCancel() {
+    setIsShowAttackModal(false);
+  }
+
+  function handleSlide() {
+    var audio = new Audio("/music/slider.mp3");
+    audio.play();
   }
 
   if (isShowAttackModal === false) return null;
@@ -89,6 +109,7 @@ const AttackModal = () => {
                 max={100}
                 step={1}
                 onValueChange={(i) => setVal(i)}
+                onClick={handleSlide}
               />
 
               <div className="flex flex-wrap justify-evenly items-start gap-2 max-w-[424px] min-h-[180px]">
@@ -121,7 +142,7 @@ const AttackModal = () => {
                 </button>
 
                 <button
-                  onClick={() => setIsShowAttackModal(false)}
+                  onClick={handleCancel}
                   className={cn(
                     fredoka.className,
                     "ty-title pt-3 pb-4 px-4 cancel-layout bg-[#de2800] rounded-[16px] border-4 border-[#000]"

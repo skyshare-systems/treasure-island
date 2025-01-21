@@ -11,6 +11,7 @@ import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { useControls } from "react-zoom-pan-pinch";
+import useMusic from "@/hooks/useMusic";
 
 const LandList = () => {
   const { zoomToElement } = useControls();
@@ -22,6 +23,14 @@ const LandList = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
+
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+  } = useMusic();
 
   const platinum = [
     {
@@ -284,11 +293,20 @@ const LandList = () => {
       token,
       percentage,
     });
+    setIsPlaying(false);
+    audioBgMusic?.current?.pause();
+    audioBgMusicAttack?.current?.play();
     setIsShowAttackModal(true);
   }
 
+  useEffect(() => {
+    if (isShowAttackModal === false) audioBgMusicAttack?.current?.pause();
+  }, [isShowAttackModal]);
+
   return (
     <>
+      <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
+
       {dashboardCount === 1 && (
         <div className="flex flex-col gap-2 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[400px] max-h-[400px] md:min-h-[581px] md:max-h-[581px] max-w-[588px] md:min-w-[588px] p-2">
           <Filter

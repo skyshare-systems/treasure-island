@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
@@ -15,12 +15,15 @@ import { CheckIcon, CopyIcon } from "lucide-react";
 import Graph from "./graph";
 import YieldGraph from "./yield-graph";
 import TokenIcon from "@/components/icon/token";
+import useMusic from "@/hooks/useMusic";
 
 const SelectedLand = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
-  const { setIsShowAttackModal } = useAttackModal((state) => state);
+  const { setIsShowAttackModal, isShowAttackModal } = useAttackModal(
+    (state) => state
+  );
   const { item } = useSelectedLand((state) => state);
 
   const [selectedFilter, setSelectedFilter] = useState("Price and Yield");
@@ -61,7 +64,18 @@ const SelectedLand = () => {
     },
   ];
 
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+  } = useMusic();
+
   function handleAttack() {
+    setIsPlaying(false);
+    audioBgMusic?.current?.pause();
+    audioBgMusicAttack?.current?.play();
     setIsShowAttackModal(true);
   }
 
@@ -77,8 +91,14 @@ const SelectedLand = () => {
     return () => clearTimeout(timerId);
   }
 
+  useEffect(() => {
+    if (isShowAttackModal === false) audioBgMusicAttack?.current?.pause();
+  }, [isShowAttackModal]);
+
   return (
     <>
+      <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
+
       {dashboardCount === 2 && (
         <>
           <div className="w-full">
