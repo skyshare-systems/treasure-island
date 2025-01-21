@@ -210,18 +210,7 @@ export const items = [
     id: 15,
     label: "Item 15",
     color: "#f9f9f9",
-    land: (
-      <>
-        <Image
-          src={"/assets/stones/stone-1.png"}
-          alt={"stone"}
-          height={500}
-          width={500}
-          unoptimized
-          className="min-[140px] lg:min-w-[150px]"
-        />
-      </>
-    ),
+    land: <></>,
   },
   {
     name: "Konoha",

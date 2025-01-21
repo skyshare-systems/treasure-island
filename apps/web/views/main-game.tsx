@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Loading from "@/components/loading-first";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import WalletHub from "@/components/wallet-hub";
@@ -17,12 +17,26 @@ import MinimapGame from "./minimap-game";
 import { items } from "@/components/items";
 
 const MainGame = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { setIsShowAttackModal } = useAttackModal((state) => state);
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
   const { setItem, item } = useSelectedLand((state) => state);
+  const openModalMusic = useRef<any>();
+  const closeModalMusic = useRef<any>();
+
+  function handleClick() {
+    var audio = new Audio("/music/modal-open.mp3");
+    audio.play();
+    setDashboardCount(1);
+  }
+
+  function handleClose() {
+    var audio = new Audio("/music/modal-close.mp3");
+    audio.play();
+    setDashboardCount(0);
+  }
 
   function handleAttack(
     name,
@@ -72,9 +86,10 @@ const MainGame = () => {
 
   useEffect(() => {
     setLoading(true);
+
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -226,7 +241,14 @@ const MainGame = () => {
           <>
             <WalletHub />
             <MinimapGame />
-            <Marketplace />
+            <audio ref={openModalMusic} src="/music/modal-open.mp3" />
+            <audio ref={closeModalMusic} src="/music/modal-close.mp3" />
+
+            <Marketplace
+              onClick={() => {
+                dashboardCount === 1 ? handleClose() : handleClick();
+              }}
+            />
             <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
               <TransformComponent>
                 <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px]">

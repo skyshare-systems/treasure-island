@@ -44,10 +44,22 @@ const LandCard = ({ ...props }: ILandCard) => {
       percentage,
     });
     zoomToElement(name);
+    landClick();
     setDashboardCount(4);
+  }
+
+  function landHover() {
+    var audio = new Audio("/music/land-hover.mp3");
+    audio.play();
+  }
+
+  function landClick() {
+    var audio = new Audio("/music/land-click.mp3");
+    audio.play();
   }
   return (
     <button
+      onMouseEnter={landHover}
       id={props.name}
       onClick={() =>
         handleViewData(

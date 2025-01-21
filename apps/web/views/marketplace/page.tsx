@@ -8,10 +8,15 @@ import Dashboard from "./dashboard";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import Swap from "../swap/page";
 
-const Marketplace = () => {
+interface IMarketplace {
+  onClick: any;
+}
+
+const Marketplace = ({ onClick }: IMarketplace) => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
+
   return (
     <div className="fixed hidden lg:flex flex-col items-end justify-end  gap-2 bottom-4 right-0 px-4 z-[3]">
       <Dashboard />
@@ -19,9 +24,7 @@ const Marketplace = () => {
         <Swap />
 
         <button
-          onClick={() =>
-            dashboardCount === 1 ? setDashboardCount(0) : setDashboardCount(1)
-          }
+          onClick={onClick}
           className="flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]"
         >
           {dashboardCount === 1 ? (

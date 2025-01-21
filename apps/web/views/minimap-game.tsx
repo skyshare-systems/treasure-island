@@ -1,4 +1,6 @@
 "use client";
+import MusicIcon from "@/components/icon/music";
+import MuteMusicIcon from "@/components/icon/mute-music";
 import ZoomIn from "@/components/icon/zoom-in";
 import ZoomOut from "@/components/icon/zoom-out";
 import { items } from "@/components/items";
@@ -7,12 +9,13 @@ import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
 import { XIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useControls } from "react-zoom-pan-pinch";
-import dynamic from "next/dynamic";
 
 const MinimapGame = () => {
   const [isShowMap, setIsShowMap] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioBgMusic = useRef<any>();
   const { zoomIn, zoomOut, zoomToElement } = useControls();
   const { setItem, item } = useSelectedLand((state) => state);
   const { setDashboardCount } = useDashboardModal((state) => state);
@@ -52,11 +55,32 @@ const MinimapGame = () => {
     }
   }
 
+  function musicOn() {
+    setIsPlaying(true);
+    audioBgMusic?.current?.play();
+  }
+
+  function musicOff() {
+    setIsPlaying(false);
+    audioBgMusic?.current?.pause();
+  }
+
+  function handleClick() {
+    var audio = new Audio("/music/modal-open.mp3");
+    audio.play();
+    setIsShowMap(!isShowMap);
+  }
+  function handleClose() {
+    var audio = new Audio("/music/modal-close.mp3");
+    audio.play();
+    setIsShowMap(!isShowMap);
+  }
+
   return (
     <>
       {isShowMap ? (
         <button
-          onClick={() => setIsShowMap(!isShowMap)}
+          onClick={handleClick}
           className={cn(
             "fixed top-3 left-3  flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]"
           )}
@@ -132,15 +156,32 @@ const MinimapGame = () => {
               >
                 <ZoomOut />
               </button>
+              {isPlaying ? (
+                <button
+                  className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
+                  onClick={() => musicOff()}
+                >
+                  <MusicIcon className="min-w-[12px]" />
+                </button>
+              ) : (
+                <button
+                  className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
+                  onClick={() => musicOn()}
+                >
+                  <MuteMusicIcon className="min-w-[12px]" />
+                </button>
+              )}
 
               <button
-                onClick={() => setIsShowMap(!isShowMap)}
+                onClick={() => handleClose()}
                 className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
               >
                 <XIcon className="min-w-[12px]" />
               </button>
             </div>
           </div>
+
+          <audio ref={audioBgMusic} src="/music/in-game-bg-music.mp3" />
         </div>
       )}
     </>
