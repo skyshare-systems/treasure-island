@@ -28,7 +28,6 @@ const MainGame = () => {
   const { setItem, item } = useSelectedLand((state) => state);
   const openModalMusic = useRef<any>();
   const closeModalMusic = useRef<any>();
-  const [muteMusic, setMuteMusic] = useState(false);
 
   const {
     isPlaying,
@@ -117,7 +116,7 @@ const MainGame = () => {
 
   useEffect(() => {
     if (!isShowAttackModal) audioBgMusicAttack?.current?.pause();
-  }, [muteMusic]);
+  }, [isShowAttackModal]);
 
   return (
     <div className="relative flex justify-center items-center">

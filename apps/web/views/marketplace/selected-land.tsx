@@ -264,16 +264,16 @@ const SelectedLand = () => {
                               <path
                                 d="M7 2.8335V12.1668"
                                 stroke="#26995E"
-                                stroke-width="0.875"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="0.875"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                               <path
                                 d="M9.91633 5.75014C9.91633 5.75014 7.76826 2.8335 6.99966 2.8335C6.23106 2.83349 4.08301 5.75016 4.08301 5.75016"
                                 stroke="#26995E"
-                                stroke-width="0.875"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="0.875"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                             </svg>
                             <h1
@@ -324,16 +324,16 @@ const SelectedLand = () => {
                               <path
                                 d="M7 2.8335V12.1668"
                                 stroke="#26995E"
-                                stroke-width="0.875"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="0.875"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                               <path
                                 d="M9.91633 5.75014C9.91633 5.75014 7.76826 2.8335 6.99966 2.8335C6.23106 2.83349 4.08301 5.75016 4.08301 5.75016"
                                 stroke="#26995E"
-                                stroke-width="0.875"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="0.875"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                             </svg>
                             <h1
