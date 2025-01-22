@@ -17,6 +17,15 @@ const Result = ({
   attackPercentage,
 }: IResultModal) => {
   const { item } = useSelectedLand((state) => state);
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+    landHover,
+    landClick,
+  } = useMusic();
 
   const computeAttackPrice = (islandPrice, attackPercentage) => {
     if (attackPercentage < 1 || attackPercentage > 100) {
@@ -59,6 +68,8 @@ const Result = ({
               className="w-full max-w-[414px]"
             />
             <button
+              onMouseDown={landClick}
+              onMouseEnter={landHover}
               onClick={handleShowResult}
               className="attack-button py-3 px-8"
             >
@@ -154,6 +165,8 @@ const Result = ({
             </div>
 
             <button
+              onMouseDown={landClick}
+              onMouseEnter={landHover}
               onClick={handleShowResult}
               className="view-my-island py-4 px-6"
             >

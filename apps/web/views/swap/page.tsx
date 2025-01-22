@@ -5,11 +5,22 @@ import { fredoka } from "@/public/fonts";
 import React, { useRef, useState } from "react";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import CoinSwap from "@/components/icon/coin-swap";
+import useMusic from "@/hooks/useMusic";
 
 const Swap = () => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
+
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+    landHover,
+    landClick,
+  } = useMusic();
 
   function handleClick() {
     var audio = new Audio("/music/modal-open.mp3");
@@ -27,6 +38,8 @@ const Swap = () => {
       {dashboardCount === 3 ? (
         <button
           onClick={handleClose}
+          onMouseEnter={() => landHover()}
+          onMouseDown={() => landClick()}
           className="flex items-center gap-1 p-3 border-2 border-cyan-1 bg-neutral-1 rounded-xl z-[3]"
         >
           <XIcon className="invert grayscale-0" />
@@ -34,6 +47,8 @@ const Swap = () => {
       ) : (
         <button
           onClick={handleClick}
+          onMouseEnter={() => landHover()}
+          onMouseDown={() => landClick()}
           className="flex items-center gap-1 p-3 border-2 border-cyan-1 bg-neutral-1 rounded-xl z-[3]"
         >
           <CoinSwap />

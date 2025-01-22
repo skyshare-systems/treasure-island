@@ -1,3 +1,4 @@
+import useMusic from "@/hooks/useMusic";
 import { cn } from "@/lib/utils";
 import { fredoka } from "@/public/fonts";
 import React from "react";
@@ -9,11 +10,14 @@ interface IFilter {
 }
 
 const Filter = ({ filterData, selectedFilter, setSelectedFilter }: IFilter) => {
+  const { landHover, landClick } = useMusic();
   return (
     <div className="p-1 flex flex-wrap justify-center md:justify-between items-center gap-2 w-full bg-white rounded-lg">
       {filterData.map((data, index) => {
         return (
           <button
+            onMouseEnter={() => landHover()}
+            onMouseDown={() => landClick()}
             onClick={() => setSelectedFilter(data.name)}
             key={index}
             className={cn(

@@ -35,6 +35,8 @@ const MainGame = () => {
     audioBgMusicAttack,
 
     setIsPlaying,
+    landHover,
+    landClick,
   } = useMusic();
 
   function handleClick() {
@@ -148,6 +150,8 @@ const MainGame = () => {
               </div>
               <div className="pl-4 pb-4 flex items-center gap-2">
                 <button
+                  onMouseDown={landClick}
+                  onMouseEnter={landHover}
                   onClick={() =>
                     handleViewData(
                       item.name,
@@ -227,6 +231,8 @@ const MainGame = () => {
             </div>
 
             <button
+              onMouseDown={landClick}
+              onMouseEnter={landHover}
               onClick={() =>
                 handleAttack(
                   item.name,

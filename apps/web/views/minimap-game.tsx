@@ -5,6 +5,7 @@ import ZoomIn from "@/components/icon/zoom-in";
 import ZoomOut from "@/components/icon/zoom-out";
 import { items } from "@/components/items";
 import useMusic from "@/hooks/useMusic";
+import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
@@ -18,12 +19,18 @@ const MinimapGame = () => {
   const { zoomIn, zoomOut, zoomToElement } = useControls();
   const { setItem, item } = useSelectedLand((state) => state);
   const { setDashboardCount } = useDashboardModal((state) => state);
+  const { isShowAttackModal, setIsShowAttackModal } = useAttackModal(
+    (state) => state
+  );
 
   const {
     isPlaying,
     audioBgMusic,
+    audioBgMusicAttack,
 
     setIsPlaying,
+    landHover,
+    landClick,
   } = useMusic();
 
   const gridContainerStyle = {
@@ -84,21 +91,20 @@ const MinimapGame = () => {
     setIsShowMap(!isShowMap);
   }
 
-  function landHover() {
-    var audio = new Audio("/music/land-hover.mp3");
-    audio.play();
-  }
-
-  function landClick() {
-    var audio = new Audio("/music/land-click.mp3");
-    audio.play();
-  }
+  useEffect(() => {
+    if (isShowAttackModal === true) {
+      audioBgMusic?.current?.pause();
+      setIsPlaying(false);
+    }
+  }, [isShowAttackModal]);
 
   return (
     <>
       {isShowMap ? (
         <button
           onClick={handleClick}
+          onMouseEnter={() => landHover()}
+          onMouseDown={() => landClick()}
           className={cn(
             "fixed top-3 left-3  flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]"
           )}
@@ -165,12 +171,16 @@ const MinimapGame = () => {
             <div className="absolute top-2 right-2 cursor-pointer rounded-lg  flex items-center justify-center gap-1">
               <button
                 onClick={() => zoomIn()}
+                onMouseEnter={() => landHover()}
+                onMouseDown={() => landClick()}
                 className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
               >
                 <ZoomIn />
               </button>
               <button
                 onClick={() => zoomOut()}
+                onMouseEnter={() => landHover()}
+                onMouseDown={() => landClick()}
                 className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
               >
                 <ZoomOut />
@@ -179,6 +189,8 @@ const MinimapGame = () => {
                 <button
                   className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
                   onClick={() => musicOff()}
+                  onMouseEnter={() => landHover()}
+                  onMouseDown={() => landClick()}
                 >
                   <MusicIcon className="min-w-[12px]" />
                 </button>
@@ -186,6 +198,8 @@ const MinimapGame = () => {
                 <button
                   className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
                   onClick={() => musicOn()}
+                  onMouseEnter={() => landHover()}
+                  onMouseDown={() => landClick()}
                 >
                   <MuteMusicIcon className="min-w-[12px]" />
                 </button>
@@ -193,6 +207,8 @@ const MinimapGame = () => {
 
               <button
                 onClick={() => handleClose()}
+                onMouseEnter={() => landHover()}
+                onMouseDown={() => landClick()}
                 className="flex justify-center items-center gap-1 p-2 border bg-white rounded-lg h-5 w-5"
               >
                 <XIcon className="min-w-[12px]" />

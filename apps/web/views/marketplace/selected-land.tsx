@@ -70,6 +70,8 @@ const SelectedLand = () => {
     audioBgMusicAttack,
 
     setIsPlaying,
+    landClick,
+    landHover,
   } = useMusic();
 
   function handleAttack() {
@@ -103,6 +105,8 @@ const SelectedLand = () => {
         <>
           <div className="w-full">
             <button
+              onMouseEnter={() => landHover()}
+              onMouseDown={() => landClick()}
               onClick={() => setDashboardCount(1)}
               className={cn(
                 fredoka.className,
@@ -129,6 +133,8 @@ const SelectedLand = () => {
                 </div>
 
                 <button
+                  onMouseEnter={() => landHover()}
+                  onMouseDown={() => landClick()}
                   onClick={() => handleAttack()}
                   className={cn(
                     fredoka.className,
@@ -187,6 +193,8 @@ const SelectedLand = () => {
                   </div>
                   <h1 className="ty-h5 text-neutral-1">{item.name}</h1>
                   <button
+                    onMouseEnter={() => landHover()}
+                    onMouseDown={() => landClick()}
                     onClick={() => copyClipBoard()}
                     className="flex items-center gap-1"
                   >
@@ -209,6 +217,8 @@ const SelectedLand = () => {
                   {filter.map((data, index) => {
                     return (
                       <button
+                        onMouseEnter={() => landHover()}
+                        onMouseDown={() => landClick()}
                         key={index}
                         onClick={() => setSelectedFilter(data.name)}
                         className={cn(

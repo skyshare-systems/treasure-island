@@ -30,6 +30,8 @@ const LandList = () => {
     audioBgMusicAttack,
 
     setIsPlaying,
+    landHover,
+    landClick,
   } = useMusic();
 
   const platinum = [
@@ -345,10 +347,16 @@ const LandList = () => {
                           </h1>
                         </div>
                         <div className="p-4 flex items-center gap-2">
-                          <button onClick={() => zoomToElement(data.name)}>
+                          <button
+                            onMouseEnter={() => landHover()}
+                            onMouseDown={() => landClick()}
+                            onClick={() => zoomToElement(data.name)}
+                          >
                             <LocationIcon />
                           </button>
                           <button
+                            onMouseEnter={() => landHover()}
+                            onMouseDown={() => landClick()}
                             onClick={() =>
                               handleViewData(
                                 data.name,
@@ -455,6 +463,8 @@ const LandList = () => {
                       </div>
 
                       <button
+                        onMouseEnter={() => landHover()}
+                        onMouseDown={() => landClick()}
                         onClick={() =>
                           handleAttack(
                             data.name,

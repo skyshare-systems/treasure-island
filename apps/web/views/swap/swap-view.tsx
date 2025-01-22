@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import CopyIcon from "@/components/icon/copy-icon";
 import { useToken0, useToken1 } from "@/lib/store/token-store";
+import useMusic from "@/hooks/useMusic";
 
 const SwapView = () => {
   const { dashboardCount } = useDashboardModal((state) => state);
@@ -53,6 +54,16 @@ const SwapView = () => {
   ];
   const [isCopy, setIsCopy] = useState(false);
 
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+    landHover,
+    landClick,
+  } = useMusic();
+
   function copyClipBoard(address: string) {
     navigator.clipboard.writeText(address);
     setIsCopy(true);
@@ -82,6 +93,8 @@ const SwapView = () => {
         <div className="flex flex-col gap-2 items-start justify-start min-w-[288px]  min-h-[266px] pt-2 pb-3 px-2 rounded-3xl border-4 border-cyan-1 bg-neutral-7">
           <div className="flex flex-col items-start justify-start gap-[3px] w-full relative">
             <button
+              onMouseEnter={() => landHover()}
+              onMouseDown={() => landClick()}
               onClick={switchData}
               className="absolute top-[56%] left-1/2 transform -translate-x-1/2 -translate-y-[56%] bg-neutral-7 p-1 rounded-lg"
             >
@@ -363,7 +376,11 @@ const SwapView = () => {
               </div>
             </div>
           </div>
-          <button className="swap-button w-full py-3 px-2 rounded-full">
+          <button
+            onMouseEnter={() => landHover()}
+            onMouseDown={() => landClick()}
+            className="swap-button w-full py-3 px-2 rounded-full"
+          >
             <h1 className={cn(fredoka.className, "ty-title text-neutral-1")}>
               Swap
             </h1>

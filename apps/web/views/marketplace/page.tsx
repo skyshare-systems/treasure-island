@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import Dashboard from "./dashboard";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import Swap from "../swap/page";
+import useMusic from "@/hooks/useMusic";
 
 interface IMarketplace {
   onClick: any;
@@ -16,6 +17,15 @@ const Marketplace = ({ onClick }: IMarketplace) => {
   const { dashboardCount, setDashboardCount } = useDashboardModal(
     (state) => state
   );
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+    landHover,
+    landClick,
+  } = useMusic();
 
   return (
     <div className="fixed hidden lg:flex flex-col items-end justify-end  gap-2 bottom-4 right-0 px-4 z-[3]">
@@ -25,6 +35,8 @@ const Marketplace = ({ onClick }: IMarketplace) => {
 
         <button
           onClick={onClick}
+          onMouseEnter={() => landHover()}
+          onMouseDown={() => landClick()}
           className="flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]"
         >
           {dashboardCount === 1 ? (

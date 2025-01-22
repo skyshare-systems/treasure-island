@@ -6,12 +6,24 @@ const useMusic = () => {
   const audioBgMusic = useRef<any>();
   const audioBgMusicAttack = useRef<any>();
 
+  function landHover() {
+    var audio = new Audio("/music/land-hover.mp3");
+    audio.play();
+  }
+
+  function landClick() {
+    var audio = new Audio("/music/land-click.mp3");
+    audio.play();
+  }
+
   return {
     isPlaying,
     audioBgMusic,
     audioBgMusicAttack,
 
     setIsPlaying,
+    landHover,
+    landClick,
   };
 };
 

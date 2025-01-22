@@ -23,7 +23,15 @@ const AttackModal = () => {
     (state) => state
   );
   const { item } = useSelectedLand((state) => state);
-  const { audioBgMusicAttack } = useMusic();
+  const {
+    isPlaying,
+    audioBgMusic,
+    audioBgMusicAttack,
+
+    setIsPlaying,
+    landHover,
+    landClick,
+  } = useMusic();
 
   function determineOutcome() {
     setIsShowAttackModal(true);
@@ -34,7 +42,6 @@ const AttackModal = () => {
 
     setTimeout(() => {
       setIsShowAttackModal(false);
-
       setLoading(false);
       if (randomNumber < val[0]) {
         setResult("You Win!");
@@ -135,6 +142,8 @@ const AttackModal = () => {
 
                 <div className="flex flex-col gap-4 items-center justify-center">
                   <button
+                    onMouseDown={landClick}
+                    onMouseEnter={landHover}
                     onClick={() => determineOutcome()}
                     className={cn(
                       fredoka.className,
@@ -145,6 +154,8 @@ const AttackModal = () => {
                   </button>
 
                   <button
+                    onMouseDown={landClick}
+                    onMouseEnter={landHover}
                     onClick={handleCancel}
                     className={cn(
                       fredoka.className,
