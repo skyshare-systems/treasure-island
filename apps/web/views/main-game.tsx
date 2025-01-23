@@ -257,12 +257,12 @@ const MainGame = () => {
       )}
 
       <TransformWrapper
-        initialScale={2}
-        initialPositionX={0}
-        initialPositionY={0}
+        initialScale={1.5}
+        initialPositionX={-400}
+        initialPositionY={-200}
         minScale={1.5}
       >
-        {({ zoomIn, zoomOut, resetTransform, centerView, ...rest }) => (
+        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
             <WalletHub />
             <MinimapGame />
