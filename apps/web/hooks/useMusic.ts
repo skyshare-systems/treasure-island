@@ -5,6 +5,7 @@ const useMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioBgMusic = useRef<any>();
   const audioBgMusicAttack = useRef<any>();
+  const audioLoadingMusic = useRef<any>();
 
   function landHover() {
     var audio = new Audio("/music/land-hover.mp3");
@@ -20,6 +21,7 @@ const useMusic = () => {
     isPlaying,
     audioBgMusic,
     audioBgMusicAttack,
+    audioLoadingMusic,
 
     setIsPlaying,
     landHover,

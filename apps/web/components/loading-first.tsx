@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils";
 import { useLoading } from "@/lib/store/loading-store";
 import { fredoka } from "@/public/fonts";
 import { motion } from "framer-motion";
+import useMusic from "@/hooks/useMusic";
 
 const LoadingFirst = () => {
   const { isLoading, setIsLoading } = useLoading((state) => state);
+  const [isClose, setIsClose] = useState(false);
   const items = Array.from({ length: 10 }, (_, i) => ``);
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -19,14 +21,37 @@ const LoadingFirst = () => {
     },
   };
 
+  const { audioLoadingMusic } = useMusic();
+
+  function closeLoading() {
+    audioLoadingMusic?.current?.play();
+    setIsClose(false);
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsClose(true);
+      setIsLoading(false);
+      audioLoadingMusic?.current?.pause();
+    }, 5000);
+  }
+
+  // useEffect(() => {
+  //   if (isClose) audioLoadingMusic?.current?.pause();
+  // }, []);
+
+  if (isClose) return null;
+
   return (
     <>
       <div
+        onClick={closeLoading}
         className={cn(
-          `fixed top-0 left-0 w-full z-[99999999999999] backdrop-blur-2xl flex justify-center items-center overflow-hidden min-h-[100dvh] ease-out duration-300`,
+          `fixed top-0 left-0 w-full z-[99999999999999] backdrop-blur-2xl flex justify-center items-center overflow-hidden min-h-[100dvh] ease-out duration-300 cursor-pointer`,
           `${!isLoading ? "bg-[#171921]" : " bg-[#171921]/10"}`
         )}
       >
+        <audio ref={audioLoadingMusic} src="/music/loading-bg-music.mp3" />
+
         <div className="flex flex-col justify-center items-center gap-16">
           <Image
             src={"/icons/logo.png"}
@@ -38,10 +63,10 @@ const LoadingFirst = () => {
           />
           {!isLoading ? (
             <button
-              onClick={() => setIsLoading(true)}
+              onClick={closeLoading}
               className={cn("ty-title text-neutral-8", fredoka.className)}
             >
-              CLICK ANYWHERE TO CONTINUE
+              CLICK HERE TO CONTINUE
             </button>
           ) : (
             <motion.div

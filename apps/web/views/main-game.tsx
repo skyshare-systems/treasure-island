@@ -284,7 +284,7 @@ const MainGame = () => {
                         id={item.label}
                         key={item.id}
                         className={cn(
-                          `${item.color !== "#f9f9f9" ? "cursor-pointer ease-out duration-300  hover:brightness-150" : ""}`,
+                          `${item.color !== "#f9f9f9" ? "cursor-pointer ease-out duration-300  hover:brightness-110" : ""}`,
                           "h-[35px] w-[35px] sm:h-[40px] sm:w-[40px] md:h-[70px] md:w-[70px] lg:h-[85px] lg:w-[85px] relative"
                         )}
                         style={{
