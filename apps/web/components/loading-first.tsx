@@ -1,36 +1,86 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { useLoading } from "@/lib/store/loading-store";
+import { fredoka } from "@/public/fonts";
+import { motion } from "framer-motion";
 
 const LoadingFirst = () => {
-  // const loading_bg_music = useRef<any>();
+  const { isLoading, setIsLoading } = useLoading((state) => state);
+  const items = Array.from({ length: 10 }, (_, i) => ``);
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3, // Delay between the animations of each child
+      },
+    },
+  };
 
-  // const buttonRef = useRef(null);
-
-  // const [play]: any = useSound("/music/loading-bg-music.mp3");
-
-  // useEffect(() => {
-  //   if (buttonRef.current) {
-  //     buttonRef.current.click(); // Automatically clicks the button
-  //   }
-  // }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 }, // Start off hidden and slightly below
+    visible: { opacity: 1, y: 0 }, // Slide into view
+  };
 
   return (
-    <div
-      // onMouseEnter={play}
-      className="fixed top-0 left-0 w-full z-[99999999999999] bg-black/10 backdrop-blur-2xl flex justify-center items-center overflow-hidden min-h-[100dvh]"
-    >
-      {/* <button ref={buttonRef} onClick={() => playAudio()}>
-        asd
-      </button> */}
-      {/* <audio
-        ref={loading_bg_music}
-        src="/music/loading-bg-music.mp3"
-        muted
-        autoPlay
-      /> */}
-      <Image src={"/icons/logo.png"} alt={"logo"} height={556} width={496} />
-    </div>
+    <>
+      <div
+        className={cn(
+          `fixed top-0 left-0 w-full z-[99999999999999] backdrop-blur-2xl flex justify-center items-center overflow-hidden min-h-[100dvh] ease-out duration-300`,
+          `${!isLoading ? "bg-[#171921]" : " bg-[#171921]/10"}`
+        )}
+      >
+        <div className="flex flex-col justify-center items-center gap-16">
+          <Image
+            src={"/icons/logo.png"}
+            alt={"logo"}
+            height={556}
+            width={496}
+            unoptimized
+            className="max-w-[400px] w-full select-none"
+          />
+          {!isLoading ? (
+            <button
+              onClick={() => setIsLoading(true)}
+              className={cn("ty-title text-neutral-8", fredoka.className)}
+            >
+              CLICK ANYWHERE TO CONTINUE
+            </button>
+          ) : (
+            <motion.div
+              className="flex items-center gap-2"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {items.map((item, index) => (
+                <motion.div
+                  initial={{ opacity: 1, background: "#4d7999" }}
+                  transition={{
+                    delay: index * 0.3,
+                    ease: "easeOut",
+                    duration: 0.3,
+                    filter: "blur(5px)",
+                  }}
+                  whileInView={{ opacity: 1, background: "#59f7ff" }}
+                  key={index}
+                  className="item border-2 border-black"
+                  style={{
+                    padding: "10px",
+                    borderRadius: "5px",
+                    textAlign: "center",
+                  }}
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 
