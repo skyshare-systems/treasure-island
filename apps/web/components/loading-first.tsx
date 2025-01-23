@@ -19,11 +19,6 @@ const LoadingFirst = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 }, // Start off hidden and slightly below
-    visible: { opacity: 1, y: 0 }, // Slide into view
-  };
-
   return (
     <>
       <div
@@ -59,7 +54,7 @@ const LoadingFirst = () => {
                 <motion.div
                   initial={{ opacity: 1, background: "#4d7999" }}
                   transition={{
-                    delay: index * 0.3,
+                    delay: index * 0.5,
                     ease: "easeOut",
                     duration: 0.3,
                     filter: "blur(5px)",
