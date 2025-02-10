@@ -274,10 +274,10 @@ const MainGame = () => {
                 dashboardCount === 1 ? handleClose() : handleClick();
               }}
             />
-            <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
+            <div className="md:border-4 md:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full min-h-[1024px] mt-[12rem]">
               <TransformComponent>
-                <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px]">
-                  <div className="absolute -mt-[1.10rem] sm:-mt-[1.30rem] md:-mt-[2.2rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
+                <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px] min-h-[1024px]">
+                  <div className="absolute -mt-[18.2rem] sm:-mt-[16.3rem] md:-mt-[5rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div

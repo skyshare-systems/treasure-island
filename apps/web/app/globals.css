@@ -48,7 +48,7 @@
   }
 
   body {
-    @apply bg-[#171921] overflow-hidden;
+    @apply bg-[#1c82f7] md:bg-[#171921] overflow-hidden;
   }
 
   .button-layout {

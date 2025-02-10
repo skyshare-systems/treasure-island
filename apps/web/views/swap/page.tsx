@@ -52,7 +52,12 @@ const Swap = () => {
           className="flex items-center gap-1 p-3 border-2 border-cyan-1 bg-neutral-1 rounded-xl z-[3]"
         >
           <CoinSwap />
-          <h1 className={cn(fredoka.className, "ty-title text-neutral-8")}>
+          <h1
+            className={cn(
+              fredoka.className,
+              "hidden md:block ty-title text-neutral-8"
+            )}
+          >
             Swap
           </h1>
         </button>
