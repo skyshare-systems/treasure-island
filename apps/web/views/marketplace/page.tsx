@@ -2,7 +2,7 @@
 import DashboardIcon from "@/components/icon/dashboard";
 import XIcon from "@/components/icon/x-icon";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useState } from "react";
 import Dashboard from "./dashboard";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
@@ -44,7 +44,7 @@ const Marketplace = ({ onClick }: IMarketplace) => {
           ) : (
             <>
               <DashboardIcon />
-              <h1 className={cn(fredoka.className, "ty-title text-black")}>
+              <h1 className={cn(fredoka_moto.className, "ty-title text-black")}>
                 Marketplace
               </h1>
             </>

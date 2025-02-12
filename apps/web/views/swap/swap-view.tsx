@@ -3,7 +3,7 @@ import WalletIcon from "@/components/icon/wallet-icon";
 import { Input } from "@/components/ui/input";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useEffect, useState } from "react";
 import {
   DropdownMenu,
@@ -105,7 +105,7 @@ const SwapView = () => {
               <div className="flex flex-row justify-between items-center w-full">
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-subtitle text-neutral-1"
                   )}
                 >
@@ -121,7 +121,7 @@ const SwapView = () => {
                 <div className="p-2 flex justify-between items-center gap-2 rounded-lg border border-neutral-7 bg-neutral-8 w-full">
                   <Input
                     className={cn(
-                      fredoka.className,
+                      fredoka_moto.className,
                       "ty-subheading text-blue-1"
                     )}
                     placeholder="Ex. 15"
@@ -146,7 +146,7 @@ const SwapView = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle ",
                               `${open ? "text-neutral-8" : "text-neutral-1"}`
                             )}
@@ -196,7 +196,7 @@ const SwapView = () => {
                             <div className="flex flex-col gap-1">
                               <h1
                                 className={cn(
-                                  fredoka.className,
+                                  fredoka_moto.className,
                                   "ty-subtitle text-neutral-1"
                                 )}
                               >
@@ -221,7 +221,7 @@ const SwapView = () => {
                 <div className="flex flex-wrap justify-between gap-2 items-center w-full">
                   <h1
                     className={cn(
-                      fredoka.className,
+                      fredoka_moto.className,
                       "p-1 ty-subtext text-neutral-5"
                     )}
                   >
@@ -231,7 +231,7 @@ const SwapView = () => {
                   <div className="flex flex-wrap items-center gap-1">
                     <button
                       className={cn(
-                        fredoka.className,
+                        fredoka_moto.className,
                         "p-1 ty-subtext text-neutral-5"
                       )}
                     >
@@ -239,7 +239,7 @@ const SwapView = () => {
                     </button>
                     <button
                       className={cn(
-                        fredoka.className,
+                        fredoka_moto.className,
                         "p-1 ty-subtext text-neutral-5"
                       )}
                     >
@@ -247,7 +247,7 @@ const SwapView = () => {
                     </button>
                     <button
                       className={cn(
-                        fredoka.className,
+                        fredoka_moto.className,
                         "p-1 ty-subtext text-neutral-5"
                       )}
                     >
@@ -262,7 +262,7 @@ const SwapView = () => {
               <div className="flex flex-row justify-between items-center w-full">
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-subtitle text-neutral-1"
                   )}
                 >
@@ -280,7 +280,7 @@ const SwapView = () => {
                 <div className="p-2 flex justify-between items-center gap-2 rounded-lg border border-neutral-7 bg-neutral-8 w-full">
                   <Input
                     className={cn(
-                      fredoka.className,
+                      fredoka_moto.className,
                       "ty-subheading text-blue-1"
                     )}
                     placeholder="Ex. 15"
@@ -305,7 +305,7 @@ const SwapView = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle ",
                               `${open2 ? "text-neutral-8" : "text-neutral-1"}`
                             )}
@@ -352,7 +352,7 @@ const SwapView = () => {
                             <div className="flex flex-col gap-1">
                               <h1
                                 className={cn(
-                                  fredoka.className,
+                                  fredoka_moto.className,
                                   "ty-subtitle text-neutral-1"
                                 )}
                               >
@@ -381,7 +381,9 @@ const SwapView = () => {
             onMouseDown={() => landClick()}
             className="swap-button w-full py-3 px-2 rounded-full"
           >
-            <h1 className={cn(fredoka.className, "ty-title text-neutral-1")}>
+            <h1
+              className={cn(fredoka_moto.className, "ty-title text-neutral-1")}
+            >
               Swap
             </h1>
           </button>

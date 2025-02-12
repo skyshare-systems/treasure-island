@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto, jaro } from "@/public/fonts";
 import AttackModal from "@/views/marketplace/attack-modal";
 import {
   SITE_DESCRIPTION,
@@ -95,7 +95,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fredoka.className}>
+      <body>
         {children}
         <AttackModal />
       </body>

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
@@ -73,7 +73,7 @@ const Result = ({
               onClick={handleShowResult}
               className="attack-button py-3 px-8"
             >
-              <h1 className={cn(fredoka.className, "ty-h4 attack-text")}>
+              <h1 className={cn(fredoka_moto.className, "ty-h4 attack-text")}>
                 View Map
               </h1>
             </button>
@@ -94,11 +94,11 @@ const Result = ({
               alt={item.name}
               height={540}
               width={540}
-              className="w-full max-w-[540px]"
+              className="w-full max-w-[320px] sm:max-w-[540px]"
             />
 
-            <div className="py-4 px-8 rounded-3xl border-4 border-cyan-1 bg-neutral-8 min-w-[488px] flex flex-wrap items-end justify-center gap-2">
-              <div className="flex flex-col justify-center items-center gap-1 min-w-[131px]">
+            <div className="py-4 px-4 sm:px-8 rounded-3xl border-4 border-cyan-1 bg-neutral-8 sm:min-w-[488px] flex flex-wrap items-end justify-center gap-2">
+              <div className="flex flex-col justify-center items-center gap-1 sm:min-w-[131px]">
                 <div className="flex items-center gap-1">
                   <Image
                     src={"/icons/sui.png"}
@@ -107,7 +107,9 @@ const Result = ({
                     width={14}
                   />
 
-                  <h1 className={cn(fredoka.className, "ty-h6 text-black")}>
+                  <h1
+                    className={cn(fredoka_moto.className, "ty-h6 text-black")}
+                  >
                     {(
                       Number(item.sui) +
                       Number(computeAttackPrice(item?.sui, attackPercentage))
@@ -116,7 +118,7 @@ const Result = ({
                 </div>
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-descriptions text-neutral-1"
                   )}
                 >
@@ -124,15 +126,15 @@ const Result = ({
                 </h1>
               </div>
 
-              <div className="flex flex-col justify-center items-center gap-1 min-w-[131px]">
+              <div className="flex flex-col justify-center items-center gap-1 sm:min-w-[131px]">
                 <div className="flex items-center gap-1">
-                  <h1 className={cn(fredoka.className, " apr ty-h4")}>
+                  <h1 className={cn(fredoka_moto.className, "apr ty-h4")}>
                     <span className="stroke-letter">{item.percentage}</span>
                   </h1>
                 </div>
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-descriptions text-black"
                   )}
                 >
@@ -140,7 +142,7 @@ const Result = ({
                 </h1>
               </div>
 
-              <div className="flex flex-col justify-center items-center gap-1 min-w-[131px]">
+              <div className="flex flex-col justify-center items-center gap-1 sm:min-w-[131px]">
                 <div className="flex items-center gap-1">
                   <Image
                     src={"/icons/sui.png"}
@@ -149,13 +151,15 @@ const Result = ({
                     width={14}
                   />
 
-                  <h1 className={cn(fredoka.className, "ty-h6 text-black")}>
+                  <h1
+                    className={cn(fredoka_moto.className, "ty-h6 text-black")}
+                  >
                     {computeAttackPrice(item?.sui, attackPercentage).toFixed(2)}
                   </h1>
                 </div>
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-descriptions text-neutral-1"
                   )}
                 >
@@ -170,7 +174,7 @@ const Result = ({
               onClick={handleShowResult}
               className="view-my-island py-4 px-6"
             >
-              <h1 className={cn(fredoka.className, "ty-title ")}>
+              <h1 className={cn(fredoka_moto.className, "ty-title ")}>
                 View My Island
               </h1>
             </button>

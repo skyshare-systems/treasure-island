@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import AttackCard from "@/components/attack-card";
 import Result from "@/components/result";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
@@ -90,27 +90,29 @@ const AttackModal = () => {
                 alt={"island"}
                 height={1000}
                 width={1000}
-                className="min-w-[536px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-[1]"
+                className="w-full sm:min-w-[536px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-[1]"
               />
               <Image
                 src={"/assets/dashboard/attack-text.png"}
                 alt={"Attack The Island"}
                 height={154}
                 width={380}
-                className="w-full max-w-[380px] pb-[21px] -mt-[2rem]"
+                className="w-full max-w-[200px] sm:max-w-[380px] pb-[21px] mt-[0rem] sm:-mt-[2rem]"
               />
 
-              <div className="flex flex-col justify-center items-center w-full max-w-[424px] gap-4">
+              <div className="flex flex-col justify-center items-center w-full max-w-[424px] gap-4 px-8 sm:px-0">
                 <div className="rounded-2xl border-2 border-[#482B16] bg-yellow-5 attack-chance p-2 flex flex-col items-center justify-center">
                   <h1
                     className={cn(
-                      fredoka.className,
+                      fredoka_moto.className,
                       "ty-descriptions text-blue-1/50"
                     )}
                   >
                     Attack Chance
                   </h1>
-                  <h1 className={cn(fredoka.className, "ty-h4 text-blue-1")}>
+                  <h1
+                    className={cn(fredoka_moto.className, "ty-h4 text-blue-1")}
+                  >
                     {val}%
                   </h1>
                 </div>
@@ -122,32 +124,32 @@ const AttackModal = () => {
                   onClick={handleSlide}
                 />
 
-                <div className="flex flex-wrap justify-evenly items-start gap-2 max-w-[424px] min-h-[180px]">
+                <div className="flex flex-wrap justify-center items-start gap-4 max-w-[424px] sm:min-h-[180px]">
                   <AttackCard
                     title={"Island Price"}
                     value={item.sui}
-                    className={"ty-h6"}
+                    className={"ty-title sm:ty-h6"}
                   />
                   <AttackCard
                     title={"Attack Price"}
                     value={item.token}
-                    className={"ty-h4"}
+                    className={"ty-title sm:ty-h4"}
                   />
                   <AttackCard
                     title={"Owner Commission"}
                     value={item.percentage}
-                    className={"ty-h6"}
+                    className={"ty-title sm:ty-h6"}
                   />
                 </div>
 
-                <div className="flex flex-col gap-4 items-center justify-center">
+                <div className="flex flex-row sm:flex-col gap-4 items-center justify-center">
                   <button
                     onMouseDown={landClick}
                     onMouseEnter={landHover}
                     onClick={() => determineOutcome()}
                     className={cn(
-                      fredoka.className,
-                      "ty-h4 font-bold text-white pt-3 pb-4 px-4 button-layout rounded-[16px] w-full text-center border-4 border-[#000]"
+                      fredoka_moto.className,
+                      "ty-title sm:ty-h4 font-bold text-white pt-3 pb-4 px-4 button-layout rounded-[16px] w-full text-center border-4 border-[#000]"
                     )}
                   >
                     Attack!
@@ -158,7 +160,7 @@ const AttackModal = () => {
                     onMouseEnter={landHover}
                     onClick={handleCancel}
                     className={cn(
-                      fredoka.className,
+                      fredoka_moto.className,
                       "ty-title pt-3 pb-4 px-4 cancel-layout bg-[#de2800] rounded-[16px] border-4 border-[#000]"
                     )}
                   >

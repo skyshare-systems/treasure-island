@@ -4,7 +4,7 @@ import Loading from "@/components/loading-first";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import WalletHub from "@/components/wallet-hub";
 import Marketplace from "./marketplace/page";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import { cn } from "@/lib/utils";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
@@ -100,15 +100,6 @@ const MainGame = () => {
     setDashboardCount(2);
   }
 
-  useEffect(() => {
-    setLoading(true);
-
-    // const timer = setTimeout(() => {
-    //   setLoading(false);
-    // }, 1000);
-    // return () => clearTimeout(timer);
-  }, []);
-
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)", // 13 columns
@@ -135,13 +126,16 @@ const MainGame = () => {
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
                 <h1
-                  className={cn(fredoka.className, "ty-title text-neutral-1")}
+                  className={cn(
+                    fredoka_moto.className,
+                    "ty-title text-neutral-1"
+                  )}
                 >
                   {item.name}
                 </h1>
                 <h1
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-subtitle text-neutral-3"
                   )}
                 >
@@ -179,7 +173,9 @@ const MainGame = () => {
                   width={14}
                   unoptimized
                 />
-                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                <h1
+                  className={cn(fredoka_moto.className, "ty-title text-blue-1")}
+                >
                   {item.sui}
                 </h1>
 
@@ -196,7 +192,9 @@ const MainGame = () => {
               <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg md:grow w-full md:w-auto group/token relative">
                 <TokenIcon />
 
-                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                <h1
+                  className={cn(fredoka_moto.className, "ty-title text-blue-1")}
+                >
                   {item.token}
                 </h1>
 
@@ -214,7 +212,9 @@ const MainGame = () => {
               <div className="flex items-center gap-1 p-1  bg-[#0000000A] rounded-lg md:grow w-full md:w-auto group/apr relative">
                 <PercentageIcon />
 
-                <h1 className={cn(fredoka.className, "ty-title text-blue-1")}>
+                <h1
+                  className={cn(fredoka_moto.className, "ty-title text-blue-1")}
+                >
                   {item.percentage}
                 </h1>
 
@@ -246,7 +246,7 @@ const MainGame = () => {
                 )
               }
               className={cn(
-                fredoka.className,
+                fredoka_moto.className,
                 "ty-title text-white pt-[5px] pb-[5px] button-layout rounded-[8px] w-full text-center"
               )}
             >
@@ -257,10 +257,11 @@ const MainGame = () => {
       )}
 
       <TransformWrapper
-        initialScale={1.5}
+        initialScale={2}
         initialPositionX={-400}
         initialPositionY={-200}
         minScale={1.5}
+        maxScale={6}
       >
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
           <>
@@ -274,10 +275,10 @@ const MainGame = () => {
                 dashboardCount === 1 ? handleClose() : handleClick();
               }}
             />
-            <div className="border-4 border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full">
+            <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full sm:-mt-[8rem]">
               <TransformComponent>
-                <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px]">
-                  <div className="absolute -mt-[1.10rem] sm:-mt-[1.30rem] md:-mt-[2.2rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
+                <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px] min-h-[1000px]">
+                  <div className="absolute -mt-[17.5rem] sm:-mt-[15.5rem] md:-mt-[4.4rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div

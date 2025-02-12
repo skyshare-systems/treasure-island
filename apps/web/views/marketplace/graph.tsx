@@ -12,6 +12,7 @@ import {
   Filler,
 } from "chart.js";
 import useSize from "@/hooks/useWindowSize";
+import { cn } from "@/lib/utils";
 
 ChartJS.register(
   LineElement,
@@ -111,7 +112,10 @@ const Graph = () => {
   };
 
   return (
-    <div style={{ height: 144, width: windowSize?.[0] > 640 ? 366 : 280 }}>
+    <div
+      className={`${windowSize?.[0] > 640 ? "min-w-[366px]" : "min-w-[280px]"}}`}
+      style={{ height: 144, width: 280 }}
+    >
       <Line
         ref={chartRef}
         data={data}

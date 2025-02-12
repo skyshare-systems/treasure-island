@@ -9,7 +9,7 @@ import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import { XIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useControls } from "react-zoom-pan-pinch";
@@ -109,7 +109,9 @@ const MinimapGame = () => {
             "fixed top-3 left-3  flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]"
           )}
         >
-          <h1 className={cn(fredoka.className, "ty-title text-black")}>Map</h1>
+          <h1 className={cn(fredoka_moto.className, "ty-title text-black")}>
+            Map
+          </h1>
         </button>
       ) : (
         <div className="fixed top-3 left-3 flex justify-center items-center z-[9999] p-2 bg-[#1c82f7] rounded-2xl">
@@ -166,7 +168,7 @@ const MinimapGame = () => {
               ))}
             </div>
 
-            <h1 className="map-text absolute top-2 left-2">MAP</h1>
+            <h1 className={cn("map-text absolute top-2 left-2")}>MAP</h1>
             <h1 className="map-text absolute bottom-2 left-2">{item?.name}</h1>
             <div className="absolute top-2 right-2 cursor-pointer rounded-lg  flex items-center justify-center gap-1">
               <button

@@ -1,6 +1,6 @@
 import useMusic from "@/hooks/useMusic";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React from "react";
 
 interface IFilter {
@@ -21,7 +21,7 @@ const Filter = ({ filterData, selectedFilter, setSelectedFilter }: IFilter) => {
             onClick={() => setSelectedFilter(data.name)}
             key={index}
             className={cn(
-              fredoka.className,
+              fredoka_moto.className,
               "flex items-center gap-2 p-2 hover:bg-blue-1 text-blue-1 hover:text-white ty-title self-stretch grow",
               "ease-out duration-300 rounded-lg",
               `${selectedFilter === data.name ? "bg-blue-1 text-white" : "bg-transparent"}`

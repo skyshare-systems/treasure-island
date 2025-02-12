@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useLoading } from "@/lib/store/loading-store";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import { motion } from "framer-motion";
 import useMusic from "@/hooks/useMusic";
 
@@ -35,10 +35,6 @@ const LoadingFirst = () => {
     }, 5000);
   }
 
-  // useEffect(() => {
-  //   if (isClose) audioLoadingMusic?.current?.pause();
-  // }, []);
-
   if (isClose) return null;
 
   return (
@@ -64,7 +60,7 @@ const LoadingFirst = () => {
           {!isLoading ? (
             <button
               onClick={closeLoading}
-              className={cn("ty-title text-neutral-8", fredoka.className)}
+              className={cn("ty-title text-neutral-8", fredoka_moto.className)}
             >
               CLICK HERE TO CONTINUE
             </button>

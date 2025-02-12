@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto, jaro } from "@/public/fonts";
 import TokenIcon from "./icon/token";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import { useToken0, useToken1 } from "@/lib/store/token-store";
@@ -64,19 +64,22 @@ const WalletHub = () => {
     });
   }
 
+  const [isShowData, setIsShowData] = useState(false);
+
   return (
     <>
       <audio ref={openModalMusic} src="/music/modal-open.mp3" />
       <audio ref={closeModalMusic} src="/music/modal-close.mp3" />
 
       <div className="fixed bottom-0 left-0 z-[2]">
-        <div className="flex flex-col gap-2 p-4 items-start justify-start max-w-[178px] ">
+        {/* desktop */}
+        <div className="hidden lg:flex flex-col gap-2 p-4 items-start justify-start max-w-[178px] ">
           <button
             onClick={handleBuck}
             className="flex items-center gap-1 p-3 border border-white bg-[#007BE3] rounded-xl w-full"
           >
             <Image src={"/icons/sui.png"} alt={"buck"} height={14} width={14} />
-            <h1 className={cn(fredoka.className, "ty-title text-white")}>
+            <h1 className={cn(fredoka_moto.className, "ty-title text-white")}>
               41,859.25
             </h1>
           </button>
@@ -86,7 +89,9 @@ const WalletHub = () => {
             className="flex items-center gap-1 p-3 border border-black bg-[#FDE74C] rounded-xl  w-full"
           >
             <TokenIcon />
-            <h1 className={cn(fredoka.className, "ty-title text-neutral-1")}>
+            <h1
+              className={cn(fredoka_moto.className, "ty-title text-neutral-1")}
+            >
               65.88
             </h1>
           </button>
@@ -99,38 +104,107 @@ const WalletHub = () => {
               width={14}
             />
 
-            <h1 className={cn(fredoka.className, "ty-title text-neutral-1")}>
+            <h1
+              className={cn(
+                fredoka_moto.className,
+                "block ty-title text-neutral-1"
+              )}
+            >
               @bucket
             </h1>
           </div>
-          <div className="flex flex-row items-center gap-2 lg:hidden ">
-            {dashboardCount === 1 ? (
+        </div>
+        {/* mobile */}
+
+        <div className="lg:hidden flex flex-col gap-2 p-4 items-start justify-start max-w-[178px] ">
+          {isShowData && (
+            <div className="flex flex-col gap-2 bg-white border border-neutral-1 rounded-xl p-1">
               <button
-                onClick={handleClose}
-                className={cn(
-                  "flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]",
-                  `${dashboardCount === 1 ? "" : "w-full min-w-[147px]"}`
-                )}
+                onClick={handleBuck}
+                className="flex items-center gap-1 p-3 border border-white bg-[#007BE3] rounded-xl w-full"
               >
-                <XIcon />
-              </button>
-            ) : (
-              <button
-                onClick={handleClick}
-                className={cn(
-                  "flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]",
-                  `${dashboardCount === 1 ? "" : "w-full min-w-[147px]"}`
-                )}
-              >
-                <DashboardIcon />
-                <h1 className={cn(fredoka.className, "ty-title text-black")}>
-                  Marketplace
+                <Image
+                  src={"/icons/sui.png"}
+                  alt={"buck"}
+                  height={14}
+                  width={14}
+                />
+                <h1
+                  className={cn(fredoka_moto.className, "ty-title text-white")}
+                >
+                  41,859.25
                 </h1>
               </button>
-            )}
 
-            <Swap />
-          </div>
+              <button
+                onClick={handleBut}
+                className="flex items-center gap-1 p-3 border border-black bg-[#FDE74C] rounded-xl  w-full"
+              >
+                <TokenIcon />
+                <h1
+                  className={cn(
+                    fredoka_moto.className,
+                    "ty-title text-neutral-1"
+                  )}
+                >
+                  65.88
+                </h1>
+              </button>
+
+              <button
+                onClick={() => setIsShowData(false)}
+                className="p-2 rounded-xl bg-[#99202C]/[0.08] text-red-4"
+              >
+                Disconnect
+              </button>
+            </div>
+          )}
+
+          <button
+            onClick={() => setIsShowData(true)}
+            className="flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl"
+          >
+            <Image
+              src={"/assets/avatar.png"}
+              alt={"avater"}
+              height={14}
+              width={14}
+            />
+          </button>
+        </div>
+
+        <div className="flex flex-row items-center gap-2 lg:hidden fixed bottom-4 right-4">
+          <Swap />
+
+          {dashboardCount === 1 ? (
+            <button
+              onClick={handleClose}
+              className={cn(
+                "flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]",
+                `${dashboardCount === 1 ? "" : "w-full min-w-[147px]"}`
+              )}
+            >
+              <XIcon />
+            </button>
+          ) : (
+            <button
+              onClick={handleClick}
+              className={cn(
+                "flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl z-[3]",
+                `${dashboardCount === 1 ? "" : "w-full lg:min-w-[147px]"}`
+              )}
+            >
+              <DashboardIcon />
+              <h1
+                className={cn(
+                  fredoka_moto.className,
+                  "lg:block hidden ty-title text-black"
+                )}
+              >
+                Marketplace
+              </h1>
+            </button>
+          )}
         </div>
       </div>
 

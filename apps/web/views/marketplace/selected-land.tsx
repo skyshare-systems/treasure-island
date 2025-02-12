@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -109,7 +109,7 @@ const SelectedLand = () => {
               onMouseDown={() => landClick()}
               onClick={() => setDashboardCount(1)}
               className={cn(
-                fredoka.className,
+                fredoka_moto.className,
                 "p-2 flex flex-row items-center gap-1 bg-neutral-8 border-2 border-cyan-1 rounded-full ty-descriptions"
               )}
             >
@@ -117,7 +117,7 @@ const SelectedLand = () => {
               Back
             </button>
           </div>
-          <div className="flex gap-4 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[400px] max-h-[400px] md:min-h-[581px] md:max-h-[581px] max-w-[588px] w-full lg:min-w-[588px] p-2">
+          <div className="flex gap-4 items-start justify-start rounded-3xl border-4 border-cyan-1 bg-neutral-7 min-h-[400px] max-h-[400px] md:min-h-[500px] md:max-h-[500px] max-w-[588px] w-full lg:min-w-[500px] p-2">
             <div className="bg-white rounded-3xl p-3 flex flex-col lg:flex-row gap-4 items-start justify-start grow self-stretch overflow-y-auto max-h-[581px]">
               {/* Left */}
               <div className="flex flex-col items-start justify-start gap-2 max-w-[300px] lg:max-w-[144px]">
@@ -137,7 +137,7 @@ const SelectedLand = () => {
                   onMouseDown={() => landClick()}
                   onClick={() => handleAttack()}
                   className={cn(
-                    fredoka.className,
+                    fredoka_moto.className,
                     "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
                   )}
                 >
@@ -147,14 +147,17 @@ const SelectedLand = () => {
                   <div className="p-2 flex items-center justify-between gap-2">
                     <h1
                       className={cn(
-                        fredoka.className,
+                        fredoka_moto.className,
                         "ty-subtitle text-red-2"
                       )}
                     >
                       Attacks Received
                     </h1>
                     <h1
-                      className={cn(fredoka.className, "ty-title text-red-5")}
+                      className={cn(
+                        fredoka_moto.className,
+                        "ty-title text-red-5"
+                      )}
                     >
                       32
                     </h1>
@@ -163,14 +166,17 @@ const SelectedLand = () => {
                   <div className="p-2 flex items-center justify-between gap-2 w-full">
                     <h1
                       className={cn(
-                        fredoka.className,
+                        fredoka_moto.className,
                         "ty-subtitle text-mint-2"
                       )}
                     >
                       Successful Attacks
                     </h1>
                     <h1
-                      className={cn(fredoka.className, "ty-title text-mint-5")}
+                      className={cn(
+                        fredoka_moto.className,
+                        "ty-title text-mint-5"
+                      )}
                     >
                       2
                     </h1>
@@ -182,7 +188,7 @@ const SelectedLand = () => {
               <div className="flex flex-col items-start justify-start gap-4 w-full">
                 <div className="flex flex-col gap-1 items-start">
                   <div className="flex items-center py-1 px-2 bg-green-3 rounded-full">
-                    <h1 className={cn(fredoka.className, "ty-subtitle")}>
+                    <h1 className={cn(fredoka_moto.className, "ty-subtitle")}>
                       <span className="text-neutral-8 capitalize">
                         {item.variant} •{" "}
                       </span>
@@ -222,7 +228,7 @@ const SelectedLand = () => {
                         key={index}
                         onClick={() => setSelectedFilter(data.name)}
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "py-1 px-2 text-neutral-1 ty-subtitle",
                           "ease-out duration-300  underline-offset-4",
                           `${selectedFilter === data.name ? "underline" : "hover:underline"}`
@@ -239,7 +245,7 @@ const SelectedLand = () => {
                     <div className="flex flex-col gap-1 items-start relative overflow-hidden w-full">
                       <h1
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-subtext text-neutral-6"
                         )}
                       >
@@ -256,7 +262,7 @@ const SelectedLand = () => {
                             />
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-black"
                               )}
                             >
@@ -288,7 +294,7 @@ const SelectedLand = () => {
                             </svg>
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-green-3"
                               )}
                             >
@@ -303,7 +309,7 @@ const SelectedLand = () => {
                     <div className="flex flex-col gap-1 items-start relative overflow-hidden w-full">
                       <h1
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-subtext text-neutral-6"
                         )}
                       >
@@ -316,7 +322,7 @@ const SelectedLand = () => {
 
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-black"
                               )}
                             >
@@ -348,7 +354,7 @@ const SelectedLand = () => {
                             </svg>
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-green-3"
                               )}
                             >
@@ -362,7 +368,7 @@ const SelectedLand = () => {
                             <h1 className="ty-title text-yellow-4">APR</h1>
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-black"
                               )}
                             >
@@ -381,7 +387,7 @@ const SelectedLand = () => {
 
                             <h1
                               className={cn(
-                                fredoka.className,
+                                fredoka_moto.className,
                                 "ty-subtitle text-green-3"
                               )}
                             >

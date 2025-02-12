@@ -1,7 +1,7 @@
 import ArrowUpRight from "@/components/icon/arrow-up-right";
 import LocationIcon from "@/components/icon/location";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TokenIcon from "@/components/icon/token";
@@ -331,7 +331,7 @@ const LandList = () => {
                         <div className="flex flex-col">
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-neutral-1"
                             )}
                           >
@@ -339,7 +339,7 @@ const LandList = () => {
                           </h1>
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle text-neutral-3"
                             )}
                           >
@@ -396,7 +396,7 @@ const LandList = () => {
                           />
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -420,7 +420,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -444,7 +444,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -478,7 +478,7 @@ const LandList = () => {
                           )
                         }
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
                         )}
                       >
@@ -502,7 +502,7 @@ const LandList = () => {
                         <div className="flex flex-col">
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-neutral-1"
                             )}
                           >
@@ -510,7 +510,7 @@ const LandList = () => {
                           </h1>
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle text-neutral-3"
                             )}
                           >
@@ -561,7 +561,7 @@ const LandList = () => {
                           />
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -573,7 +573,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -585,7 +585,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -608,7 +608,7 @@ const LandList = () => {
                           )
                         }
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
                         )}
                       >
@@ -632,7 +632,7 @@ const LandList = () => {
                         <div className="flex flex-col">
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-neutral-1"
                             )}
                           >
@@ -640,7 +640,7 @@ const LandList = () => {
                           </h1>
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle text-neutral-3"
                             )}
                           >
@@ -691,7 +691,7 @@ const LandList = () => {
                           />
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -703,7 +703,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -715,7 +715,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -738,7 +738,7 @@ const LandList = () => {
                           )
                         }
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
                         )}
                       >
@@ -762,7 +762,7 @@ const LandList = () => {
                         <div className="flex flex-col">
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-neutral-1"
                             )}
                           >
@@ -770,7 +770,7 @@ const LandList = () => {
                           </h1>
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-subtitle text-neutral-3"
                             )}
                           >
@@ -821,7 +821,7 @@ const LandList = () => {
                           />
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -833,7 +833,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -845,7 +845,7 @@ const LandList = () => {
 
                           <h1
                             className={cn(
-                              fredoka.className,
+                              fredoka_moto.className,
                               "ty-title text-blue-1"
                             )}
                           >
@@ -868,7 +868,7 @@ const LandList = () => {
                           )
                         }
                         className={cn(
-                          fredoka.className,
+                          fredoka_moto.className,
                           "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
                         )}
                       >

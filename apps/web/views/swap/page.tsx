@@ -1,7 +1,7 @@
 "use client";
 import XIcon from "@/components/icon/x-icon";
 import { cn } from "@/lib/utils";
-import { fredoka } from "@/public/fonts";
+import { fredoka_moto } from "@/public/fonts";
 import React, { useRef, useState } from "react";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
 import CoinSwap from "@/components/icon/coin-swap";
@@ -52,7 +52,12 @@ const Swap = () => {
           className="flex items-center gap-1 p-3 border-2 border-cyan-1 bg-neutral-1 rounded-xl z-[3]"
         >
           <CoinSwap />
-          <h1 className={cn(fredoka.className, "ty-title text-neutral-8")}>
+          <h1
+            className={cn(
+              fredoka_moto.className,
+              "lg:block hidden ty-title text-neutral-8"
+            )}
+          >
             Swap
           </h1>
         </button>
