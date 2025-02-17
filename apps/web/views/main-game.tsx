@@ -16,9 +16,12 @@ import PercentageIcon from "@/components/icon/percentage";
 import MinimapGame from "./minimap-game";
 import { items } from "@/components/items";
 import useMusic from "@/hooks/useMusic";
+import { useShowMap } from "@/lib/store/minimap-modal-store";
 
 const MainGame = () => {
   const [loading, setLoading] = useState(true);
+  const { isShowMap, setIsShowMap } = useShowMap((state) => state);
+
   const { setIsShowAttackModal, isShowAttackModal } = useAttackModal(
     (state) => state
   );
@@ -107,12 +110,20 @@ const MainGame = () => {
     gap: "2px", // Space between grid items
   };
 
+  console.log(dashboardCount);
+
   useEffect(() => {
     if (!isShowAttackModal) audioBgMusicAttack?.current?.pause();
-  }, [isShowAttackModal]);
+    if (dashboardCount === 0) {
+      setIsShowMap(true);
+    }
+    if (dashboardCount === 1 || dashboardCount === 3 || dashboardCount === 4) {
+      setIsShowMap(false);
+    }
+  }, [isShowAttackModal, dashboardCount]);
 
   return (
-    <div className="relative flex justify-center items-center">
+    <div className="relative flex justify-center items-center ">
       {loading && <Loading />}
       <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
 
@@ -257,10 +268,10 @@ const MainGame = () => {
       )}
 
       <TransformWrapper
-        initialScale={2}
+        initialScale={3}
         initialPositionX={-400}
         initialPositionY={-200}
-        minScale={1.5}
+        minScale={3}
         maxScale={6}
       >
         {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
@@ -275,10 +286,10 @@ const MainGame = () => {
                 dashboardCount === 1 ? handleClose() : handleClick();
               }}
             />
-            <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full sm:-mt-[8rem]">
+            <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full -mt-[12rem] sm:-mt-[15rem]">
               <TransformComponent>
                 <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px] min-h-[1000px]">
-                  <div className="absolute -mt-[17.5rem] sm:-mt-[15.5rem] md:-mt-[4.4rem] lg:-mt-[2.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
+                  <div className="absolute -mt-[15rem] ml-[2.4rem] sm:-mt-[12.8rem] sm:ml-[2.8rem] md:-mt-[2rem] lg:-mt-[2.5rem] md:ml-[4.5rem] lg:ml-[5.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div
