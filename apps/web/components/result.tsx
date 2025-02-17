@@ -65,7 +65,7 @@ const Result = ({
               alt={"lost panda"}
               height={414}
               width={414}
-              className="w-full max-w-[414px]"
+              className="w-full max-w-[300px]"
             />
             <button
               onMouseDown={landClick}
@@ -94,7 +94,7 @@ const Result = ({
               alt={item.name}
               height={540}
               width={540}
-              className="w-full max-w-[320px] sm:max-w-[540px]"
+              className="w-full max-w-[320px]"
             />
 
             <div className="py-4 px-4 sm:px-8 rounded-3xl border-4 border-cyan-1 bg-neutral-8 sm:min-w-[488px] flex flex-wrap items-end justify-center gap-2">
