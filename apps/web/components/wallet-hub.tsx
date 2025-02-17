@@ -11,9 +11,12 @@ import XIcon from "./icon/x-icon";
 import DashboardIcon from "./icon/dashboard";
 import Dashboard from "@/views/marketplace/dashboard";
 import Swap from "@/views/swap/page";
+import { useShowMap } from "@/lib/store/minimap-modal-store";
 
 const WalletHub = () => {
   const openModalMusic = useRef<any>();
+  const { isShowMap, setIsShowMap } = useShowMap((state) => state);
+
   const closeModalMusic = useRef<any>();
   const { setDashboardCount, dashboardCount } = useDashboardModal(
     (state) => state
@@ -66,6 +69,15 @@ const WalletHub = () => {
 
   const [isShowData, setIsShowData] = useState(false);
 
+  useEffect(() => {
+    if (dashboardCount === 0) {
+      setIsShowMap(true);
+    }
+    if (dashboardCount === 1 || dashboardCount === 3) {
+      setIsShowMap(false);
+      setIsShowData(false);
+    }
+  }, [dashboardCount]);
   return (
     <>
       <audio ref={openModalMusic} src="/music/modal-open.mp3" />
