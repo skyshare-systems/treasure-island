@@ -289,7 +289,7 @@ const MainGame = () => {
             <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full -mt-[12rem] sm:-mt-[15rem]">
               <TransformComponent>
                 <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px] min-h-[1000px]">
-                  <div className="absolute -mt-[15rem] ml-[2.4rem] sm:-mt-[12.8rem] sm:ml-[2.8rem] md:-mt-[2rem] lg:-mt-[2.5rem] md:ml-[4.5rem] lg:ml-[5.5rem]  h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
+                  <div className="absolute -mt-[15rem]  sm:-mt-[12.8rem]  md:-mt-[0rem]   lg:mt-[0.3rem]   h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
                   <div style={gridContainerStyle}>
                     {items.map((item) => (
                       <div
