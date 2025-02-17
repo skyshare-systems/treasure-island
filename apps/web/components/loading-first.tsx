@@ -48,14 +48,14 @@ const LoadingFirst = () => {
       >
         <audio ref={audioLoadingMusic} src="/music/loading-bg-music.mp3" />
 
-        <div className="flex flex-col justify-center items-center gap-16">
+        <div className="flex flex-col justify-center items-center gap-4 sm:gap-16">
           <Image
             src={"/icons/logo.png"}
             alt={"logo"}
             height={556}
             width={496}
             unoptimized
-            className="max-w-[400px] w-full select-none"
+            className="max-w-[200px] sm:max-w-[400px] w-full select-none"
           />
           {!isLoading ? (
             <button
