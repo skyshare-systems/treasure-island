@@ -7,6 +7,7 @@ import { items } from "@/components/items";
 import useMusic from "@/hooks/useMusic";
 import { useAttackModal } from "@/lib/store/attack-modal-store";
 import { useDashboardModal } from "@/lib/store/dashboard-modal-store";
+import { useShowMap } from "@/lib/store/minimap-modal-store";
 import { useSelectedLand } from "@/lib/store/selected-land-store";
 import { cn } from "@/lib/utils";
 import { fredoka_moto } from "@/public/fonts";
@@ -15,7 +16,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useControls } from "react-zoom-pan-pinch";
 
 const MinimapGame = () => {
-  const [isShowMap, setIsShowMap] = useState(false);
+  const { isShowMap, setIsShowMap } = useShowMap((state) => state);
   const { zoomIn, zoomOut, zoomToElement } = useControls();
   const { setItem, item } = useSelectedLand((state) => state);
   const { setDashboardCount } = useDashboardModal((state) => state);
@@ -36,7 +37,7 @@ const MinimapGame = () => {
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)", // 13 columns
-    gridTemplateRows: "repeat(12, 1fr)", // 12 rows
+    gridTemplateRows: "repeat(13, 1fr)", // 12 rows
     gap: "2px", // Space between grid items
   };
 
@@ -96,11 +97,15 @@ const MinimapGame = () => {
       audioBgMusic?.current?.pause();
       setIsPlaying(false);
     }
-  }, [isShowAttackModal]);
+
+    if (isShowMap) {
+      setDashboardCount(0);
+    }
+  }, [isShowAttackModal, isShowMap]);
 
   return (
     <>
-      {isShowMap ? (
+      {!isShowMap ? (
         <button
           onClick={handleClick}
           onMouseEnter={() => landHover()}
@@ -115,7 +120,7 @@ const MinimapGame = () => {
         </button>
       ) : (
         <div className="fixed top-3 left-3 flex justify-center items-center z-[9999] p-2 bg-[#1c82f7] rounded-2xl">
-          <div className="border-4 border-cyan-1 bg-[#489BFA] min-h-[222px] min-w-[222px] rounded-2xl overflow-hidden relative">
+          <div className="border-4 border-cyan-1 bg-[#489BFA] min-h-[222px] min-w-[222px] aspect-square rounded-2xl overflow-hidden relative">
             <div style={gridContainerStyle}>
               {gridItems.map((item) => (
                 <div
@@ -124,11 +129,10 @@ const MinimapGame = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#f9f9f9",
+                    // backgroundColor: "#f9f9f9",
                     height: "16px",
                     width: "16px",
                     borderRadius: "4px",
-                    border: "1px solid rgba(255, 255, 255, 0.50)",
                     opacity: "0.16",
                   }}
                 ></div>
@@ -136,7 +140,7 @@ const MinimapGame = () => {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className={`${item.color !== "#f9f9f9" ? "cursor-pointer ease-out duration-300 hover:scale-125 hover:brightness-150" : ""}`}
+                  className={`${item.color !== "#f9f9f9" ? "cursor-pointer ease-out duration-300 hover:scale-125 hover:brightness-150" : ""} -mt-[1rem]`}
                   style={{
                     display: "flex",
                     justifyContent: "center",
