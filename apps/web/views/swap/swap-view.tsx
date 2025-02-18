@@ -20,13 +20,15 @@ const SwapView = () => {
   const { dashboardCount } = useDashboardModal((state) => state);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [amount, setAmount] = useState<any>("");
+  const [amount1, setAmount1] = useState<any>("");
 
   const { item, setItem } = useToken0((state) => state);
   const { item: item1, setItem: setItem1 } = useToken1((state) => state);
 
   const [token3, setToken3] = useState({
-    name: "SUI",
-    image: "/assets/swap/sui-token.png",
+    name: "USDC",
+    image: "/assets/swap/usdc-token.png",
     address: "0x1...1",
   });
 
@@ -54,15 +56,7 @@ const SwapView = () => {
   ];
   const [isCopy, setIsCopy] = useState(false);
 
-  const {
-    isPlaying,
-    audioBgMusic,
-    audioBgMusicAttack,
-
-    setIsPlaying,
-    landHover,
-    landClick,
-  } = useMusic();
+  const { landHover, landClick } = useMusic();
 
   function copyClipBoard(address: string) {
     navigator.clipboard.writeText(address);
@@ -86,6 +80,38 @@ const SwapView = () => {
   useEffect(() => {
     switchitem1();
   }, [token3]);
+
+  const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    // Regex to allow up to 5 whole digits, 1 decimal point, and up to 5 decimal places
+    const regex = /^\d{0,5}(\.\d{0,5})?$/;
+
+    // Validate the input against the regex pattern
+    if (regex.test(value)) {
+      // Remove leading zeros (e.g., '00123' => '123')
+      value = value.replace(/^0+(\d)/, "$1");
+
+      // Set the valid amount
+      setAmount(value);
+    }
+  };
+
+  const handleAmount1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    // Regex to allow up to 5 whole digits, 1 decimal point, and up to 5 decimal places
+    const regex = /^\d{0,5}(\.\d{0,5})?$/;
+
+    // Validate the input against the regex pattern
+    if (regex.test(value)) {
+      // Remove leading zeros (e.g., '00123' => '123')
+      value = value.replace(/^0+(\d)/, "$1");
+
+      // Set the valid amount
+      setAmount1(value);
+    }
+  };
 
   return (
     <>
@@ -125,6 +151,8 @@ const SwapView = () => {
                       "ty-subheading text-blue-1"
                     )}
                     placeholder="Ex. 15"
+                    onChange={handleAmount}
+                    value={amount}
                   />
 
                   <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -136,13 +164,15 @@ const SwapView = () => {
                         )}
                       >
                         <div className="flex items-center gap-1">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            height={14}
-                            width={14}
-                            unoptimized
-                          />
+                          {item?.name && (
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              height={14}
+                              width={14}
+                              unoptimized
+                            />
+                          )}
 
                           <h1
                             className={cn(
@@ -176,6 +206,7 @@ const SwapView = () => {
                           <DropdownMenuItem
                             key={index}
                             onClick={() =>
+                              item1?.name !== data.name &&
                               setItem({
                                 name: data.name,
                                 image: data.image,
@@ -284,6 +315,8 @@ const SwapView = () => {
                       "ty-subheading text-blue-1"
                     )}
                     placeholder="Ex. 15"
+                    onChange={handleAmount1}
+                    value={amount1}
                   />
                   <DropdownMenu open={open2} onOpenChange={setOpen2}>
                     <DropdownMenuTrigger asChild>
@@ -294,14 +327,16 @@ const SwapView = () => {
                         )}
                       >
                         <div className="flex items-center gap-1">
-                          <Image
-                            src={item1.image}
-                            alt={item1.name}
-                            height={14}
-                            width={14}
-                            unoptimized
-                            className="min-w-[14px]"
-                          />
+                          {item1?.name && (
+                            <Image
+                              src={item1.image}
+                              alt={item1.name}
+                              height={14}
+                              width={14}
+                              unoptimized
+                              className="min-w-[14px]"
+                            />
+                          )}
 
                           <h1
                             className={cn(
@@ -330,46 +365,49 @@ const SwapView = () => {
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="min-w-[136px] p-1 flex flex-col gap-1 rounded-lg border-[0.7px] border-neutral-6 bg-neutral-8 ">
-                      {tokens.map((data, index) => {
-                        return (
-                          <DropdownMenuItem
-                            key={index}
-                            onClick={() =>
-                              setItem1({
-                                name: data.name,
-                                image: data.image,
-                                address: data.address,
-                              })
-                            }
-                            className="flex items-center gap-2 p-1"
-                          >
-                            <Image
-                              src={data.image}
-                              alt={data.name}
-                              height={30}
-                              width={30}
-                            />
-                            <div className="flex flex-col gap-1">
-                              <h1
-                                className={cn(
-                                  fredoka_moto.className,
-                                  "ty-subtitle text-neutral-1"
-                                )}
-                              >
-                                {data.name}
-                              </h1>
-                              <h1
-                                className={cn(
-                                  "flex items-center gap-1 text-neutral-5 ty-subtext"
-                                )}
-                              >
-                                {data.address}::{data.name}
-                                <CopyIcon />
-                              </h1>
-                            </div>
-                          </DropdownMenuItem>
-                        );
-                      })}
+                      {tokens
+                        .filter((filtedata) => filtedata.name !== item1?.name)
+                        .map((data, index) => {
+                          return (
+                            <DropdownMenuItem
+                              key={index}
+                              onClick={() => {
+                                item?.name !== data.name &&
+                                  setItem1({
+                                    name: data.name,
+                                    image: data.image,
+                                    address: data.address,
+                                  });
+                              }}
+                              className="flex items-center gap-2 p-1"
+                            >
+                              <Image
+                                src={data.image}
+                                alt={data.name}
+                                height={30}
+                                width={30}
+                              />
+                              <div className="flex flex-col gap-1">
+                                <h1
+                                  className={cn(
+                                    fredoka_moto.className,
+                                    "ty-subtitle text-neutral-1"
+                                  )}
+                                >
+                                  {data.name}
+                                </h1>
+                                <h1
+                                  className={cn(
+                                    "flex items-center gap-1 text-neutral-5 ty-subtext"
+                                  )}
+                                >
+                                  {data.address}::{data.name}
+                                  <CopyIcon />
+                                </h1>
+                              </div>
+                            </DropdownMenuItem>
+                          );
+                        })}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>

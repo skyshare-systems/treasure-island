@@ -121,7 +121,7 @@ const MainGame = () => {
   }, [isShowAttackModal, dashboardCount]);
 
   return (
-    <div className="relative flex justify-center lg:items-center min-h-[100dvh] mt-[8rem] lg:mt-0 w-full">
+    <div className="relative flex justify-center lg:items-center min-h-[1024px] sm:min-h-[100dvh] mt-[8rem] lg:mt-0 w-full">
       {loading && <Loading />}
       <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
 

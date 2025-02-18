@@ -44,6 +44,7 @@ const LandList = () => {
       sui: 31,
       token: 12,
       percentage: 1.4,
+      isOwned: false,
     },
 
     {
@@ -55,6 +56,7 @@ const LandList = () => {
       sui: 80,
       token: 47,
       percentage: 1.1,
+      isOwned: false,
     },
     {
       name: "Planet Namek",
@@ -65,6 +67,7 @@ const LandList = () => {
       sui: 42,
       token: 30,
       percentage: 1.8,
+      isOwned: false,
     },
     {
       name: "Pink Panther",
@@ -75,6 +78,7 @@ const LandList = () => {
       sui: 37,
       token: 22,
       percentage: 1.3,
+      isOwned: false,
     },
     {
       name: "Sacred Land of Japan",
@@ -85,6 +89,7 @@ const LandList = () => {
       sui: 194,
       token: 39,
       percentage: 2.57,
+      isOwned: true,
     },
     {
       name: "Cherry Land",
@@ -95,6 +100,7 @@ const LandList = () => {
       sui: 88,
       token: 12,
       percentage: 1.14,
+      isOwned: false,
     },
 
     {
@@ -106,6 +112,7 @@ const LandList = () => {
       sui: 144,
       token: 53,
       percentage: 2.01,
+      isOwned: false,
     },
   ];
 
@@ -120,6 +127,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
 
     {
@@ -131,6 +139,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: true,
     },
   ];
 
@@ -144,6 +153,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
 
     {
@@ -155,6 +165,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: true,
     },
   ];
 
@@ -168,6 +179,7 @@ const LandList = () => {
       sui: 31,
       token: 12,
       percentage: 1.1,
+      isOwned: false,
     },
     {
       name: "Shang Chi",
@@ -178,6 +190,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: true,
     },
 
     {
@@ -189,6 +202,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
     {
       name: "Zen's Tropics",
@@ -199,6 +213,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: true,
     },
     {
       name: "Pls dont attacc me",
@@ -209,6 +224,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
     {
       name: "KungFu Panda",
@@ -219,6 +235,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
     {
       name: "KungFu Panda 2",
@@ -229,6 +246,7 @@ const LandList = () => {
       sui: 12,
       token: 6,
       percentage: 1.4,
+      isOwned: false,
     },
   ];
 
@@ -376,6 +394,11 @@ const LandList = () => {
                       </div>
 
                       <div className="bg-[#489BFA] w-full  min-h-[112px] rounded-xl flex justify-center items-center relative">
+                        {data?.isOwned === true && (
+                          <div className="absolute top-1 right-1 bg-white rounded-full py-1 px-2">
+                            <h1 className="text-black ty-subtitle">Owned</h1>
+                          </div>
+                        )}
                         <Image
                           src={data.image}
                           alt={data.name}
@@ -465,6 +488,7 @@ const LandList = () => {
                       <button
                         onMouseEnter={() => landHover()}
                         onMouseDown={() => landClick()}
+                        disabled={data.isOwned}
                         onClick={() =>
                           handleAttack(
                             data.name,
@@ -479,7 +503,8 @@ const LandList = () => {
                         }
                         className={cn(
                           fredoka_moto.className,
-                          "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center"
+                          "ty-title text-white font-bold pt-3 pb-3 button-layout rounded-[8px] w-full text-center",
+                          `${data.isOwned === true && "cursor-not-allowed opacity-75"}`
                         )}
                       >
                         Attack!

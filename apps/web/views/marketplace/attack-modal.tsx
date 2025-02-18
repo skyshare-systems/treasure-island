@@ -149,7 +149,7 @@ const AttackModal = () => {
                     onClick={() => determineOutcome()}
                     className={cn(
                       fredoka_moto.className,
-                      "ty-title sm:ty-h4 font-bold text-white pt-3 pb-4 px-4 button-layout rounded-[16px] w-full text-center border-4 border-[#000]"
+                      "ty-title sm:ty-h4 font-bold text-white pt-3 pb-4 px-4 button-layout rounded-[16px] w-full text-center border-4 border-[#000] order-2 sm:order-1"
                     )}
                   >
                     Attack!
@@ -161,7 +161,7 @@ const AttackModal = () => {
                     onClick={handleCancel}
                     className={cn(
                       fredoka_moto.className,
-                      "ty-title pt-3 pb-4 px-4 cancel-layout bg-[#de2800] rounded-[16px] border-4 border-[#000]"
+                      "ty-title pt-3 pb-4 px-4 cancel-layout bg-[#de2800] rounded-[16px] border-4 border-[#000] order-1 sm:order-2"
                     )}
                   >
                     Cancel
