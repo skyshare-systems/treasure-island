@@ -70,14 +70,19 @@ const WalletHub = () => {
   const [isShowData, setIsShowData] = useState(false);
 
   useEffect(() => {
-    if (dashboardCount === 0) {
-      setIsShowMap(true);
-    }
     if (dashboardCount === 1 || dashboardCount === 3) {
       setIsShowMap(false);
       setIsShowData(false);
     }
-  }, [dashboardCount]);
+
+    if (isShowData) {
+      var audio = new Audio("/music/modal-open.mp3");
+      audio.play();
+    } else {
+      var audio = new Audio("/music/modal-close.mp3");
+      audio.play();
+    }
+  }, [dashboardCount, isShowData]);
   return (
     <>
       <audio ref={openModalMusic} src="/music/modal-open.mp3" />
@@ -173,7 +178,7 @@ const WalletHub = () => {
           )}
 
           <button
-            onClick={() => setIsShowData(true)}
+            onClick={() => setIsShowData(!isShowData)}
             className="flex items-center gap-1 p-3 border-2 border-black bg-white rounded-xl"
           >
             <Image

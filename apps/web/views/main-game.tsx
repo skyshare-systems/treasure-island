@@ -110,13 +110,11 @@ const MainGame = () => {
     gap: "2px", // Space between grid items
   };
 
-  console.log(dashboardCount);
-
   useEffect(() => {
     if (!isShowAttackModal) audioBgMusicAttack?.current?.pause();
-    if (dashboardCount === 0) {
-      setIsShowMap(true);
-    }
+    // if (dashboardCount === 0) {
+    //   setIsShowMap(true);
+    // }
     if (dashboardCount === 1 || dashboardCount === 3 || dashboardCount === 4) {
       setIsShowMap(false);
     }
