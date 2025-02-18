@@ -121,7 +121,7 @@ const MainGame = () => {
   }, [isShowAttackModal, dashboardCount]);
 
   return (
-    <div className="relative flex justify-center items-center ">
+    <div className="relative flex justify-center lg:items-center min-h-[100dvh] mt-[8rem] lg:mt-0 w-full">
       {loading && <Loading />}
       <audio ref={audioBgMusicAttack} src="/music/on-attack-island-music.mp3" />
 
@@ -284,7 +284,7 @@ const MainGame = () => {
                 dashboardCount === 1 ? handleClose() : handleClick();
               }}
             />
-            <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] relative flex justify-center  max-w-[1440px] w-full -mt-[12rem] sm:-mt-[15rem]">
+            <div className="lg:border-4 lg:border-[#171921] rounded-2xl bg-[#1c82f7] flex justify-center  max-w-[1440px] w-full -mt-[12rem] sm:-mt-[15rem] min-h-[1200px] lg:mt-0">
               <TransformComponent>
                 <div className="rounded-2xl relative mx-[7rem] md:mx-[5rem] lg:mx-[12.5rem]  max-w-[1440px] min-h-[1000px]">
                   <div className="absolute -mt-[15rem]  sm:-mt-[12.8rem]  md:-mt-[0rem]   lg:mt-[0.3rem]   h-full w-full bg-[url('/assets/background/bg-background.png')] bg-center bg-no-repeat bg-contain max-w-[1440px]"></div>
